@@ -1,52 +1,7 @@
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// // Components
-// import Navbar from "../components/Navbar";
-// import Footer from "../components/Footer";
-// import Banner from "../components/Banner";
-// import FeaturedCategories from "../components/FeaturedCategories";
-// import FeaturedProducts from "../components/FeaturedProducts";
-// import Testimonials from "../components/Testimonials";
-// import CouponCard from "../components/CouponCard";
-
-// // Pages
-// import AboutPage from "./AboutPage";
-// import UpcomingFestivalPuja from "./UpcomingFestivalPuja";
-// import ServicesPage from "./ServicesPage";
-// import FAQPage from "./FAQPage";
-// import AppDownloadPage from "./AppDownloadPage";
-// import SpiritualInsights from "./SpiritualInsights";
-// import AstrologyReports from "./AstrologyReports";
-// import ContactPage from "./ContactPage";
-
-// export default function HomePages() {
-//   return (
-//     <>
-//       <Navbar />
-      
-//        <Banner/>
-//       <FeaturedCategories/>
-      
-//        <AboutPage/>
-//        <FeaturedProducts/>
-//        <AstrologyReports/>
-//        <UpcomingFestivalPuja/>
-//        <ServicesPage/>
-//        <Testimonials/>
-//        <FAQPage/>
-//        <AppDownloadPage/>
-//       <SpiritualInsights/>
-//      <CouponCard/>
-//       <Routes>
-      
-//         <Route path="/contact" element={<ContactPage />} />
-//       </Routes>
-//       <Footer />
-//     </>
-//   );
-// }
 
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 // Components
 import Navbar from "../components/Navbar";
