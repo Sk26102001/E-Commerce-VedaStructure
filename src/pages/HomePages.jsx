@@ -1,6 +1,4 @@
 
-
-
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 // Components
@@ -22,7 +20,11 @@ import SpiritualInsights from "./SpiritualInsights";
 import AstrologyReports from "./AstrologyReports";
 import ContactPage from "./ContactPage";
 import CartPage from "./CartPage";
-import AccountPage from "./AccountPage";
+// import AccountPage from "./AccountPage";
+// Auth Pages
+import LoginPage from "./LoginPage";
+import RegisterPage from "./RegisterPage";
+import ForgotPassword from "./ForgotPassword";
 
 export default function HomePages() {
   return (
@@ -30,6 +32,11 @@ export default function HomePages() {
       <Navbar />
 
       <Routes>
+         {/* Auth Routes without Navbar/Footer */}
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<RegisterPage />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+
         <Route
           path="/"
           element={
@@ -61,9 +68,9 @@ export default function HomePages() {
         <Route path="/astrology-reports" element={<AstrologyReports />} />
         <Route path="/contact" element={<ContactPage />} />
          <Route path="/cart" element={<CartPage />} />
-         <Route path="/account" element={<AccountPage />} />
-      </Routes>
-
+        
+        
+          </Routes>
       <Footer />
     </>
   );

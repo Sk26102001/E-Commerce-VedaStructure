@@ -1,6 +1,4 @@
 
-
-// src/pages/FAQPage.jsx
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 

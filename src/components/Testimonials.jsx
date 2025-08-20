@@ -1,4 +1,4 @@
-// src/pages/TestimonialsPage.jsx
+
 import React from "react";
 import { FaStar } from "react-icons/fa";
 

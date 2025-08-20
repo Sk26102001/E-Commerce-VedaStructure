@@ -121,9 +121,9 @@ export default function Banner() {
       {/* Floating images */}
       {slide.floating?.length > 0 && (
         <div
-          className="absolute flex gap-3 sm:gap-4 flex-wrap md:flex-col md:gap-8 
-                     bottom-3 sm:bottom-4 left-3 sm:left-4 
-                     md:bottom-auto md:left-auto md:top-4 md:right-6 z-10"
+          className="absolute hidden md:flex gap-3 sm:gap-4 flex-wrap md:flex-col md:gap-8 
+               bottom-3 sm:bottom-4 left-3 sm:left-4 
+               md:bottom-auto md:left-auto md:top-4 md:right-6 z-10"
         >
           {slide.floating.map((img, idx) => (
             <motion.img
@@ -167,9 +167,10 @@ export default function Banner() {
             <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white mb-4 sm:mb-6 leading-relaxed">
               {slide.desc}
             </p>
-            <button className="bg-yellow-500 hover:bg-yellow-400 active:bg-yellow-500 text-black font-semibold px-3 sm:px-5 py-1.5 sm:py-2 rounded-lg shadow-lg transition transform hover:scale-105 active:scale-95">
-              Book Puja →
-            </button>
+          <button className="bg-yellow-500 hover:bg-yellow-400 active:bg-yellow-500 text-black font-semibold px-3 sm:px-5 py-1.5 sm:py-2 rounded-lg shadow-lg transition transform hover:scale-105 active:scale-95">
+  {current === 2 ? "Buy Now →" : "Book Puja →"}
+</button>
+
           </div>
         </motion.div>
       </AnimatePresence>
