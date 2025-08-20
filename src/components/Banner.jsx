@@ -12,12 +12,12 @@ const slides = [
     title: "Your One Stop for Pooja Services & Astrology Solutions",
     desc:
       "From booking sacred Vedic poojas to shopping trusted astrology products and getting personalized reports — Veda Structure brings spiritual convenience to your fingertips. Experience divine guidance, all in one place.",
-    background: "/meditation_2_1645444217570_1645444231020.png",
+    background: "./meditation_2_1645444217570_1645444231020.png",
     floating: [
-      "/bracelets-removebg-preview.png",
-      "/bracelets2-removebg-preview.png",
-      "/RudrakshaBeads-removebg-preview.png",
-      "/gems3-removebg-preview.png",
+      "./bracelets-removebg-preview.png",
+      "./bracelets2-removebg-preview.png",
+      "./RudrakshaBeads-removebg-preview.png",
+      "./gems3-removebg-preview.png",
     ],
   },
   {
