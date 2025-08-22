@@ -1,127 +1,184 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { IoMailOutline, IoLockClosedOutline, IoPersonSharp, IoEye, IoEyeOff } from "react-icons/io5";
-import { motion } from "framer-motion";
+// import { useState } from "react";
+// import { Link } from "react-router-dom";
+// import { IoMailOutline, IoLockClosedOutline, IoPersonSharp, IoEye, IoEyeOff } from "react-icons/io5";
+// import { motion } from "framer-motion";
+
+// export default function RegisterPage() {
+//   const [showPassword, setShowPassword] = useState(false);
+//   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
+
+//   const handleChange = (e) => {
+//     setFormData({ ...formData, [e.target.name]: e.target.value });
+//   };
+
+//   // Animation settings
+//   const containerVariants = {
+//     hidden: { opacity: 0 },
+//     visible: { opacity: 1, transition: { staggerChildren: 0.15, duration: 0.6 } },
+//   };
+
+//  const itemVariants = {
+//     hidden: { opacity: 0 },
+//     visible: { opacity: 1, transition: { duration: 0.4 } },
+//   };
+
+//   return (
+//     <div className="flex items-start justify-center min-h-screen bg-gradient-to-r from-yellow-500 to-red-300 pt-20 px-4">
+//       <motion.div
+//         className="bg-white/20 backdrop-blur-xl p-10 rounded-2xl shadow-xl w-full max-w-md border border-white/30"
+//         variants={containerVariants}
+//         initial="hidden"
+//         animate="visible"
+//       >
+//         {/* Title */}
+//         <motion.h2
+//           className="text-3xl font-bold text-center text-white mb-6"
+//           variants={itemVariants}
+//         >
+//           Sign Up
+//         </motion.h2>
+
+//         {/* Form */}
+//         <motion.form className="space-y-4" variants={itemVariants}>
+//           {/* Name */}
+//           <motion.div
+//             className="relative flex items-center border border-gray-300/50 rounded-lg bg-white/50 backdrop-blur-sm focus-within:ring-2 focus-within:ring-orange-400 transition"
+//             variants={itemVariants}
+//           >
+//             <div className="flex items-center px-3 py-3">
+//               <IoPersonSharp className="text-gray-400" />
+//               <div className="w-px h-6 bg-gray-300 mx-2"></div>
+//             </div>
+//             <input
+//               type="text"
+//               name="name"
+//               value={formData.name}
+//               onChange={handleChange}
+//               placeholder="Full Name"
+//               className="flex-1 p-3 bg-transparent outline-none text-gray-800 placeholder-gray-600"
+//             />
+//           </motion.div>
+
+//           {/* Email */}
+//           <motion.div
+//             className="relative flex items-center border border-gray-300/50 rounded-lg bg-white/50 backdrop-blur-sm focus-within:ring-2 focus-within:ring-orange-400 transition"
+//             variants={itemVariants}
+//           >
+//             <div className="flex items-center px-3 py-3">
+//               <IoMailOutline className="text-gray-400" />
+//               <div className="w-px h-6 bg-gray-300 mx-2"></div>
+//             </div>
+//             <input
+//               type="email"
+//               name="email"
+//               value={formData.email}
+//               onChange={handleChange}
+//               placeholder="Email Address"
+//               className="flex-1 p-3 bg-transparent outline-none text-gray-800 placeholder-gray-600"
+//             />
+//           </motion.div>
+
+//           {/* Password */}
+//           <motion.div
+//             className="relative flex items-center border border-gray-300/50 rounded-lg bg-white/50 backdrop-blur-sm focus-within:ring-2 focus-within:ring-orange-400 transition"
+//             variants={itemVariants}
+//           >
+//             <div className="flex items-center px-3 py-3">
+//               <IoLockClosedOutline className="text-gray-400" />
+//               <div className="w-px h-6 bg-gray-300 mx-2"></div>
+//             </div>
+//             <input
+//               type={showPassword ? "text" : "password"}
+//               name="password"
+//               value={formData.password}
+//               onChange={handleChange}
+//               placeholder="Password"
+//               className="flex-1 p-3 bg-transparent outline-none text-gray-800 placeholder-gray-600"
+//             />
+//             <div
+//               className="absolute right-3 top-3 text-gray-500 cursor-pointer"
+//               onClick={() => setShowPassword(!showPassword)}
+//             >
+//               {showPassword ? <IoEyeOff /> : <IoEye />}
+//             </div>
+//           </motion.div>
+
+//           {/* Button */}
+//           <motion.button
+//             className="w-full py-3 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition duration-300 font-semibold shadow-md"
+//             variants={itemVariants}
+//           >
+//             Continue
+//           </motion.button>
+//         </motion.form>
+
+//         {/* Link */}
+//         <motion.div
+//           className="mt-4 text-center text-white/80 text-sm"
+//           variants={itemVariants}
+//         >
+//           <Link to="/login" className="hover:text-white underline">
+//             Already have an account? Login
+//           </Link>
+//         </motion.div>
+//       </motion.div>
+//     </div>
+//   );
+// }
+
+
+
+
+
+import React, { useState } from "react";
 
 export default function RegisterPage() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", password: "" });
+  const [form, setForm] = useState({ name: "", email: "", password: "" });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // Animation settings
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.15, duration: 0.6 } },
-  };
-
- const itemVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.4 } },
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`User Registered: ${form.name}`);
   };
 
   return (
-    <div className="flex items-start justify-center min-h-screen bg-gradient-to-r from-yellow-500 to-red-300 pt-20 px-4">
-      <motion.div
-        className="bg-white/20 backdrop-blur-xl p-10 rounded-2xl shadow-xl w-full max-w-md border border-white/30"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {/* Title */}
-        <motion.h2
-          className="text-3xl font-bold text-center text-white mb-6"
-          variants={itemVariants}
-        >
-          Sign Up
-        </motion.h2>
-
-        {/* Form */}
-        <motion.form className="space-y-4" variants={itemVariants}>
-          {/* Name */}
-          <motion.div
-            className="relative flex items-center border border-gray-300/50 rounded-lg bg-white/50 backdrop-blur-sm focus-within:ring-2 focus-within:ring-orange-400 transition"
-            variants={itemVariants}
-          >
-            <div className="flex items-center px-3 py-3">
-              <IoPersonSharp className="text-gray-400" />
-              <div className="w-px h-6 bg-gray-300 mx-2"></div>
-            </div>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Full Name"
-              className="flex-1 p-3 bg-transparent outline-none text-gray-800 placeholder-gray-600"
-            />
-          </motion.div>
-
-          {/* Email */}
-          <motion.div
-            className="relative flex items-center border border-gray-300/50 rounded-lg bg-white/50 backdrop-blur-sm focus-within:ring-2 focus-within:ring-orange-400 transition"
-            variants={itemVariants}
-          >
-            <div className="flex items-center px-3 py-3">
-              <IoMailOutline className="text-gray-400" />
-              <div className="w-px h-6 bg-gray-300 mx-2"></div>
-            </div>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Email Address"
-              className="flex-1 p-3 bg-transparent outline-none text-gray-800 placeholder-gray-600"
-            />
-          </motion.div>
-
-          {/* Password */}
-          <motion.div
-            className="relative flex items-center border border-gray-300/50 rounded-lg bg-white/50 backdrop-blur-sm focus-within:ring-2 focus-within:ring-orange-400 transition"
-            variants={itemVariants}
-          >
-            <div className="flex items-center px-3 py-3">
-              <IoLockClosedOutline className="text-gray-400" />
-              <div className="w-px h-6 bg-gray-300 mx-2"></div>
-            </div>
-            <input
-              type={showPassword ? "text" : "password"}
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              placeholder="Password"
-              className="flex-1 p-3 bg-transparent outline-none text-gray-800 placeholder-gray-600"
-            />
-            <div
-              className="absolute right-3 top-3 text-gray-500 cursor-pointer"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              {showPassword ? <IoEyeOff /> : <IoEye />}
-            </div>
-          </motion.div>
-
-          {/* Button */}
-          <motion.button
-            className="w-full py-3 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition duration-300 font-semibold shadow-md"
-            variants={itemVariants}
-          >
-            Continue
-          </motion.button>
-        </motion.form>
-
-        {/* Link */}
-        <motion.div
-          className="mt-4 text-center text-white/80 text-sm"
-          variants={itemVariants}
-        >
-          <Link to="/login" className="hover:text-white underline">
-            Already have an account? Login
-          </Link>
-        </motion.div>
-      </motion.div>
+    <div className="flex justify-center items-center h-[80vh]">
+      <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-lg w-96">
+        <h2 className="text-2xl font-bold mb-4 text-center">Register</h2>
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          value={form.name}
+          onChange={handleChange}
+          className="w-full border px-3 py-2 mb-3 rounded"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={form.email}
+          onChange={handleChange}
+          className="w-full border px-3 py-2 mb-3 rounded"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={form.password}
+          onChange={handleChange}
+          className="w-full border px-3 py-2 mb-3 rounded"
+          required
+        />
+        <button className="bg-green-600 text-white px-4 py-2 w-full rounded">
+          Register
+        </button>
+      </form>
     </div>
   );
 }

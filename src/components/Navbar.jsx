@@ -161,9 +161,10 @@ export default function Navbar() {
         </div>
 
         {/* Sidebar Links */}
-        <nav className="flex flex-col space-y-3 px-4 py-4 font-semibold text-gray-700">
-          <Link to="/" onClick={() => setIsOpen(false)} className="hover:text-orange-500">Home</Link>
-          <Link to="/talk-to-astrologer" onClick={() => setIsOpen(false)} className="hover:text-orange-500">Talk To Astrologer</Link>
+        <nav className="flex flex-col space-y-3 px-4 py-1 font-semibold text-gray-700 ">
+
+          <Link to="/" onClick={() => setIsOpen(false)} className="py-2 px-4 rounded-md  text-gray-800 hover:bg-orange-500 hover:text-white transition">Home</Link>
+          <Link to="/talk-to-astrologer" onClick={() => setIsOpen(false)} className="py-2 px-4 rounded-md  text-gray-800 hover:bg-orange-500 hover:text-white transition">Talk To Astrologer</Link>
           <Link to="/puja" onClick={() => setIsOpen(false)} className="hover:text-orange-500">Puja</Link>
           <Link to="/astro-report" onClick={() => setIsOpen(false)} className="hover:text-orange-500">Astrology Report</Link>
           <Link to="/astrology-courses" onClick={() => setIsOpen(false)} className="hover:text-orange-500">Astrology Courses</Link>

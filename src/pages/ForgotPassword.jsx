@@ -18,7 +18,7 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div className="flex items-start justify-center min-h-screen bg-gradient-to-r from-yellow-500 to-red-300 pt-20">
+    <div className="flex items-start justify-center min-h-screen bg-gradient-to-r from-yellow-500 to-red-300 pt-20 px-4">
       <motion.div
         className="bg-white/20 backdrop-blur-xl p-10 rounded-2xl shadow-xl w-full max-w-md border border-white/30"
         variants={containerVariants}
