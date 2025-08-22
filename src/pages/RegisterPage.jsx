@@ -78,7 +78,7 @@ export default function RegisterPage() {
             />
           </motion.div>
 
-          {/* Password */}
+          {/* Password
           <motion.div
             className="relative flex items-center border border-gray-300/50 rounded-lg bg-white/50 backdrop-blur-sm focus-within:ring-2 focus-within:ring-orange-400 transition"
             variants={itemVariants}
@@ -101,11 +101,49 @@ export default function RegisterPage() {
             >
               {showPassword ? <IoEyeOff /> : <IoEye />}
             </div>
-          </motion.div>
+          </motion.div> */}
+
+          {/* Password */}
+<motion.div
+  className="relative flex flex-col border border-gray-300/50 rounded-lg bg-white/50 backdrop-blur-sm focus-within:ring-2 focus-within:ring-orange-400 transition p-1"
+  variants={itemVariants}
+>
+  <div className="flex items-center">
+    <div className="flex items-center px-3 py-3">
+      <IoLockClosedOutline className="text-gray-400" />
+      <div className="w-px h-6 bg-gray-300 mx-2"></div>
+    </div>
+    <input
+      type={showPassword ? "text" : "password"}
+      name="password"
+      value={formData.password}
+      onChange={handleChange}
+      placeholder="Password"
+      className="flex-1 p-3 bg-transparent outline-none text-gray-800 placeholder-gray-600"
+    />
+    <div
+      className="absolute right-3 top-3 text-gray-500 cursor-pointer"
+      onClick={() => setShowPassword(!showPassword)}
+    >
+      {showPassword ? <IoEyeOff /> : <IoEye />}
+    </div>
+  </div>
+
+  {/* Error message */}
+  {!isPasswordValid(formData.password) && formData.password.length > 0 && (
+    <p className="text-red-500 text-xs px-3 pb-2">
+      Password must be 8-16 characters and include at least one special character.
+    </p>
+  )}
+</motion.div>
+
+
+
+
 
           {/* Button */}
           <motion.button
-            className="w-full py-3 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition duration-300 font-semibold shadow-md"
+            className="w-full py-3 bg-red-500 text-white rounded-lg hover:bg-yellow-600 transition duration-300 font-semibold shadow-md"
             variants={itemVariants}
           >
             Continue
@@ -114,10 +152,10 @@ export default function RegisterPage() {
 
         {/* Link */}
         <motion.div
-          className="mt-4 text-center text-white/80 text-sm"
+          className="mt-4 text-center text-gray/50  text-sm"
           variants={itemVariants}
         >
-          <Link to="/login" className="hover:text-white underline">
+          <Link to="/login" className="hover:text-orange-700 underline">
             Already have an account? Login
           </Link>
         </motion.div>
