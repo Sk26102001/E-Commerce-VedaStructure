@@ -34,7 +34,7 @@ export default function HomePages() {
       <Routes>
          {/* Auth Routes without Navbar/Footer */}
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<RegisterPage />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
 
         <Route
