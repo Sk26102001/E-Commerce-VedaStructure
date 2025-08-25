@@ -1,13 +1,14 @@
 
 import React from 'react'
-import HomePages from './pages/HomePages'
-// import UserProfile from './pages/UserProfile'
+// import HomePages from './pages/HomePages'
+import UserProfile from './pages/AccountPage'
+import AccountPage from './pages/AccountPage'
 
 function App() {
   return (
     <div>
-      <HomePages/>
-      {/* <UserProfile /> */}
+      {/* <HomePages/> */}
+      <AccountPage />
       
     </div>
   )
