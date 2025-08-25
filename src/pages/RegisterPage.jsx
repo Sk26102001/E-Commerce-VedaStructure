@@ -15,11 +15,33 @@ const RegisterPage = () => {
   const [error, setError] = useState("");
 
   // Password validation regex
-  const passwordRegex = /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{6,}$/;
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{6,}$/;
+
+  // Email validation regex
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   // Handle form submission
   const handleRegister = (e) => {
     e.preventDefault();
+
+    // ✅ Validate Name
+    if (name.trim().length < 3) {
+      setError("Name must be at least 3 characters long.");
+      return;
+    }
+
+    // ✅ Validate Mobile
+    if (!/^\d{10}$/.test(number)) {
+      setError("Mobile number must be 10 digits.");
+      return;
+    }
+
+    // ✅ Validate Email
+    if (!emailRegex.test(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
 
     // ✅ Validate Password
     if (!passwordRegex.test(password)) {
@@ -29,8 +51,9 @@ const RegisterPage = () => {
       return;
     }
 
-    if (password !== confirmPassword) {brabr
-      setError("Passwords do not match");
+    // ✅ Validate Confirm Password
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
       return;
     }
 
@@ -42,23 +65,16 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="flex items-center justify-center  mt-5 mb-10 ">
-      <div className="bg-white rounded-md shadow-xl/10 w-full max-w-md p-6">
-        {/* Tabs */}
-        <div className="flex mb-6 bg-gray-100 rounded-md">
-          <Link
-            to="/login"
-            className="w-1/2 py-3 text-gray-600 font-medium rounded-md hover:bg-gray-200 text-center"
-          >
-            Login
-          </Link>
-          <button className="w-1/2 py-3 bg-white text-gray-700 font-medium rounded-md shadow">
-            Register
-          </button>
-        </div>
+    <div className="flex items-center justify-center mt-5 mb-10">
+      <div className="bg-white rounded-md shadow-xl/20 w-full max-w-md p-6">
+        {/* Title */}
+        <h2 className="text-2xl font-bold text-center mb-6 text-gray-700">
+          Register Now
+        </h2>
 
         {/* Form */}
         <form className="space-y-4" onSubmit={handleRegister}>
+          {/* Name */}
           <div>
             <label className="block text-gray-700 mb-1">Name</label>
             <input
@@ -71,18 +87,20 @@ const RegisterPage = () => {
             />
           </div>
 
+          {/* Mobile */}
           <div>
             <label className="block text-gray-700 mb-1">Mobile Number</label>
             <input
               type="text"
               value={number}
               onChange={(e) => setNumber(e.target.value)}
-              placeholder="Enter Number"
+              placeholder="Enter 10-digit Number"
               className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-orange-500"
               required
             />
           </div>
 
+          {/* Email */}
           <div>
             <label className="block text-gray-700 mb-1">Email</label>
             <input
@@ -102,7 +120,7 @@ const RegisterPage = () => {
               type={showPassword ? "text" : "password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder=""
+              placeholder="Enter Password"
               className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-orange-500"
               required
             />
@@ -122,7 +140,7 @@ const RegisterPage = () => {
               type={showConfirmPassword ? "text" : "password"}
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              placeholder=""
+              placeholder="Re-enter Password"
               className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-orange-500"
               required
             />
@@ -149,7 +167,7 @@ const RegisterPage = () => {
 
         {/* Login Link */}
         <p className="text-center text-gray-500 text-sm mt-4">
-          Have already an account?{" "}
+          Already have an account?{" "}
           <Link to="/login" className="text-yellow-500 font-medium">
             Login Here
           </Link>
