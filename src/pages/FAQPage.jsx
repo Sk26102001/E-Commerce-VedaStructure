@@ -69,9 +69,17 @@ export default function FAQPage() {
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-2">
           Frequently Asked Questions
         </h2>
-        {/* Orange underline */}
-        <div className="w-20 h-1 bg-orange-500 mx-auto mb-6 rounded-full"></div>
-        <p className="text-center text-gray-600 mb-8">
+
+        {/* border image */}
+         <div className="flex justify-center mb-10">
+    <img
+      src="https://aap.astroarunpandit.org/wp-content/uploads/2025/07/wave-1-768x54.png"
+      alt="decorative border"
+      className="w-48 md:w-64 lg:w-72"
+    />
+  </div>
+      
+        <p className="text-center text-gray-600 mb-10">
           Find answers to common questions about our services and spiritual offerings
         </p>
 
