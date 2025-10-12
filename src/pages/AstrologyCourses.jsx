@@ -372,7 +372,7 @@ const [index, setIndex] = useState(0);
         loop
         muted
         playsInline
-        className="w-[600] h-[450px] object-cover object-[center_top] rounded-3xl"
+        className="w-[500] h-[450px] object-cover object-[center_top] rounded-3xl"
       />
     </motion.div>
 
