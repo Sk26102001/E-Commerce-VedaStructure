@@ -95,10 +95,120 @@
 
 
 
+// import React from "react";
+// import { Routes, Route, Outlet, useLocation } from "react-router-dom";
+
+// // Components / Pages (import as you already have)
+// import Navbar from "../components/Navbar";
+// import Footer from "../components/Footer";
+// import Banner from "../components/Banner";
+// import FeaturedCategories from "../components/FeaturedCategories";
+// import FeaturedProducts from "../components/FeaturedProducts";
+// import Testimonials from "../components/Testimonials";
+// import CouponCard from "../components/CouponCard";
+// import EnrollNow from "../components/EnrollNow";
+// import PaymentPage from "./PaymentPage";
+// import AboutPage from "./AboutPage";
+// import UpcomingFestivalPuja from "./UpcomingFestivalPuja";
+// import ServicesPage from "./ServicesPage";
+// import FAQPage from "./FAQPage";
+// import AppDownloadPage from "./AppDownloadPage";
+// import SpiritualInsights from "./SpiritualInsights";
+// import AstrologyReports from "./AstrologyReports";
+// import ContactPage from "./ContactPage";
+// import CartPage from "./CartPage";
+// import AstrologyCourses from "./AstrologyCourses";
+// import LoginPage from "./LoginPage";
+// import RegisterPage from "./RegisterPage";
+// import ForgotPassword from "./ForgotPassword";
+// import CoursedetailsPage from "./CoursedetailsPage"
+// import LifePanorama from "./LifePanorama";
+// import MoreCourses from "./MoreCourses"
+// import CategoryGemsStones from "./CategoryGemsStones";
+
+// function Layout() {
+//   const location = useLocation();
+//   const hideFor = ["/login", "/register", "/forgot-password", "/enrollnow", "/paymentpage","/CoursedetailsPage","/MoreCourses",""];
+//   const hide = hideFor.includes(location.pathname);
+
+//   return (
+//     <>
+//       {!hide && <Navbar />}
+//       <main>
+//         <Outlet />
+//       </main>
+//       {!hide && <Footer />}
+//     </>
+//   );
+// }
+
+// function HomeContent() {
+//   return (
+//     <>
+//       <Banner />
+//       <FeaturedCategories />
+//       <AboutPage />
+//       <FeaturedProducts />
+//       <AstrologyReports />
+//       <UpcomingFestivalPuja />
+//       <ServicesPage />
+//       <Testimonials />
+//       <FAQPage />
+//       <AppDownloadPage />
+//       <SpiritualInsights />
+//       <CouponCard />
+//     </>
+//   );
+// }
+
+// export default function HomePages() {
+//   return (
+//     <Routes>
+//       {/* All routes that should share the layout */}
+//       <Route element={<Layout />}>
+//         <Route path="/" element={<HomeContent />} />
+//         <Route path="/about" element={<AboutPage />} />
+//         <Route path="/upcoming-festival-puja" element={<UpcomingFestivalPuja />} />
+//         <Route path="/services" element={<ServicesPage />} />
+//         <Route path="/faq" element={<FAQPage />} />
+//         <Route path="/app-download" element={<AppDownloadPage />} />
+//         <Route path="/spiritual-insights" element={<SpiritualInsights />} />
+//         <Route path="/astrology-reports" element={<AstrologyReports />} />
+//         <Route path="/contact" element={<ContactPage />} />
+//         <Route path="/cart" element={<CartPage />} />
+//         <Route path="/astrology-courses" element={<AstrologyCourses />} />
+//         <Route path="veda-store/gemsstones" element={<CategoryGemsStones />} />
+
+//         {/* Enrollment and Payment */}
+//         <Route path="/enrollnow" element={<EnrollNow />} />
+//         <Route path="/paymentpage" element={<PaymentPage />} />
+//          <Route path="/CoursedetailsPage" element={<CoursedetailsPage />} />
+//          <Route path="/MoreCourses" element={<MoreCourses />} />
+//            <Route path="/LifePanorama" element={<MoreCourses />} />
+
+//         {/* Auth pages (hidden layout already) */}
+//         <Route path="/login" element={<LoginPage />} />
+//         <Route path="/register" element={<RegisterPage />} />
+//         <Route path="/forgot-password" element={<ForgotPassword />} />
+//       </Route>
+
+//       {/* Optional: fallback */}
+//       <Route path="*" element={<div>Page not found</div>} />
+//     </Routes>
+//   );
+// }
+
+
+
+
+
+
+
+
+
 import React from "react";
 import { Routes, Route, Outlet, useLocation } from "react-router-dom";
 
-// Components / Pages (import as you already have)
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Banner from "../components/Banner";
@@ -121,19 +231,23 @@ import AstrologyCourses from "./AstrologyCourses";
 import LoginPage from "./LoginPage";
 import RegisterPage from "./RegisterPage";
 import ForgotPassword from "./ForgotPassword";
+import CoursedetailsPage from "./CoursedetailsPage";
+import LifePanorama from "./LifePanorama";
+import MoreCourses from "./MoreCourses";
+import CategoryGemsStones from "./CategoryGemsStones";
 
 function Layout() {
   const location = useLocation();
-  const hideFor = ["/login", "/register", "/forgot-password", "/enrollnow", "/paymentpage"];
-  const hide = hideFor.includes(location.pathname);
+  const hideNavbarPaths = ["/login", "/register", "/forgot-password","/enrollnow", "/PaymentPage","/CoursedetailsPage","/MoreCourses","/contact","/astrology-courses"];
+  const hideLayout = hideNavbarPaths.includes(location.pathname);
 
   return (
     <>
-      {!hide && <Navbar />}
-      <main>
+      {!hideLayout && <Navbar />}
+      <main className="min-h-screen">
         <Outlet />
       </main>
-      {!hide && <Footer />}
+      {!hideLayout && <Footer />}
     </>
   );
 }
@@ -160,7 +274,6 @@ function HomeContent() {
 export default function HomePages() {
   return (
     <Routes>
-      {/* All routes that should share the layout */}
       <Route element={<Layout />}>
         <Route path="/" element={<HomeContent />} />
         <Route path="/about" element={<AboutPage />} />
@@ -173,19 +286,20 @@ export default function HomePages() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/astrology-courses" element={<AstrologyCourses />} />
-
-        {/* Enrollment and Payment */}
+        <Route path="/veda-store/gemsstones" element={<CategoryGemsStones />} />
         <Route path="/enrollnow" element={<EnrollNow />} />
         <Route path="/paymentpage" element={<PaymentPage />} />
-
-        {/* Auth pages (hidden layout already) */}
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/CoursedetailsPage" element={<CoursedetailsPage />} />
+        <Route path="/MoreCourses" element={<MoreCourses />} />
+        <Route path="/LifePanorama" element={<LifePanorama />} />
       </Route>
 
-      {/* Optional: fallback */}
-      <Route path="*" element={<div>Page not found</div>} />
+      {/* Auth Pages - no layout */}
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+
+      <Route path="*" element={<div className="p-10 text-center text-red-600 font-semibold">Page Not Found</div>} />
     </Routes>
   );
 }

@@ -5,7 +5,7 @@ import HomePages from './pages/HomePages'
 // import AccountPage from './pages/AccountPage'
 // import AstrologyCourses from './pages/AstrologyCourses'
 // import EnrollNow from './components/EnrollNow'
-import PaymentPage from './pages/PaymentPage'
+// import PaymentPage from './pages/PaymentPage'
 
 function App() {
   return (
