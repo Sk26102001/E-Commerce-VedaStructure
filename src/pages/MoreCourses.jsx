@@ -731,7 +731,7 @@
 //                     <select
 //                         value={sortBy}
 //                         onChange={(e) => setSortBy(e.target.value)}
-//                         className={`appearance-none border border-gray-300 rounded-xl px-4 py-2.5 pr-10 text-sm font-medium cursor-pointer focus:ring-2 focus:ring-orange-400 transition w-full ${sortBy === 'recommended' ? 'bg-yellow-100 text-orange-700 font-bold' : 'bg-white text-gray-700 hover:bg-orange-50'}`}
+//                         className={`appearance-none border border-gray-300 rounded-xl px-4 py-2.5 pr-10 text-sm font-medium cursor-pointer focus:ring-2 focus:ring-orange-400 transition w-full ${sortBy === 'recommended' ? 'bg-gradient-to-r from-orange-500 to-yellow-400 text-white font-semibold shadow' : 'bg-white text-gray-700 hover:bg-orange-50'}`}
 //                     >
 //                         <option value="recommended">⭐ Recommended For You</option>
 //                         <option value="ratingHigh">Rating: High to Low</option>
@@ -1137,13 +1137,13 @@ export default function MoreCourses() {
 							<ChevronDown size={18} className="absolute right-3 top-3 text-gray-500 pointer-events-none" />
 						</div>
 
-						{/* 4. Sort By Dropdown (Updated Design) */}
-						<div className="relative w-full md:w-1/4">
-							<select
-								value={sortBy}
-								onChange={(e) => setSortBy(e.target.value)}
-								className={`appearance-none border border-gray-300 rounded-xl px-4 py-2.5 pr-10 text-sm font-medium cursor-pointer focus:ring-2 focus:ring-orange-400 transition w-full ${sortBy === 'recommended' ? 'bg-yellow-100 text-orange-700 font-bold' : 'bg-white text-gray-700 hover:bg-orange-50'}`}
-							>
+					{/* 4. Sort By Dropdown (Updated Design) */}
+					<div className="relative w-full md:w-1/4">
+						<select
+							value={sortBy}
+							onChange={(e) => setSortBy(e.target.value)}
+							className={`appearance-none border border-gray-300 rounded-xl px-4 py-2.5 pr-10 text-sm font-medium cursor-pointer focus:ring-2 focus:ring-orange-400 transition w-full ${sortBy === 'recommended' ? 'bg-gradient-to-r from-orange-500 to-yellow-400 text-white font-semibold shadow' : 'bg-white text-gray-700 hover:bg-orange-50'}`}
+						>
 								<option value="recommended">⭐ Recommended For You</option>
 								<option value="ratingHigh">Rating: High to Low</option>
 								<option value="priceLow">Price: Low to High</option>
