@@ -622,7 +622,7 @@ const [index, setIndex] = useState(0);
                  hover:from-orange-500 hover:to-yellow-400
                  transition-all duration-300 transform hover:scale-105"
     >
-      कोर्स जॉइन करें
+      Enroll Now
     </Link>
 
     {/* Outline Button */}
@@ -632,7 +632,7 @@ const [index, setIndex] = useState(0);
                  hover:from-orange-500 hover:to-yellow-400
                  transition-all duration-300 transform hover:scale-105"
     >
-      फ्री प्रीव्यू देखें
+      Preview
     </Link>
   </div>
 </section>
@@ -734,7 +734,7 @@ const [index, setIndex] = useState(0);
 
     {/* -------- CTA BUTTON -------- */}
     <div className="mt-10">
-      <Link to="/MoreCourses">
+      <Link to="/enrollnow">
         <motion.div
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.96 }}
