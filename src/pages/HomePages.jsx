@@ -235,10 +235,26 @@ import CoursedetailsPage from "./CoursedetailsPage";
 import LifePanorama from "./LifePanorama";
 import MoreCourses from "./MoreCourses";
 import CategoryGemsStones from "./CategoryGemsStones";
+import PalmistryCourse from "./PalmistryCourse";
+import NumerologyCourse from "./NumerologyCourse";
+import VastuCourse from "./VastuCourse";
+import SanskritCourse from "./SanskritCourse";
+import DailyPujaCourse from "./DailyPujaCourse";
+import Muhurtas from "./Muhurtas";
+import UpanishadsCourse from "./UpanishadsCourse";
+import VedasCourse from "./VedasCourse";
+import PuranaCourse from "./PuranaCourse";
+import MathematicsCourse from "./MathematicsCourse";
+import MantraCourse from "./MantraCourse";
+import SanskritReadingCourse from "./SanskritReadingCourse";
+import SacredTextsCourse from "./SacredTextsCourse";
+import VedicScience from "./VedicScience";
+import VedicPhilosophy from "./VedicPhilosophy";
+import EnrollNows from "../components/EnrollNows";
 
 function Layout() {
   const location = useLocation();
-  const hideNavbarPaths = ["/login", "/register", "/forgot-password","/enrollnow", "/PaymentPage","/CoursedetailsPage","/MoreCourses","/contact","/astrology-courses"];
+  const hideNavbarPaths = ["/login", "/register", "/forgot-password","/enrollnow","/enrollnows", "/PaymentPage","/CoursedetailsPage","/MoreCourses","/contact","/astrology-courses"];
   const hideLayout = hideNavbarPaths.includes(location.pathname);
 
   return (
@@ -288,6 +304,7 @@ export default function HomePages() {
         <Route path="/astrology-courses" element={<AstrologyCourses />} />
         <Route path="/veda-store/gemsstones" element={<CategoryGemsStones />} />
         <Route path="/enrollnow" element={<EnrollNow />} />
+        <Route path="/enrollnows" element={<EnrollNows />} />
         <Route path="/paymentpage" element={<PaymentPage />} />
         <Route path="/CoursedetailsPage" element={<CoursedetailsPage />} />
         <Route path="/MoreCourses" element={<MoreCourses />} />
@@ -298,6 +315,21 @@ export default function HomePages() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
+       <Route path="/palmistry" element={<PalmistryCourse />} />
+       <Route path="/numerology" element={<NumerologyCourse />} />
+       <Route path="/vastu" element={<VastuCourse />} />
+       <Route path="/sanskritcourse" element={<SanskritCourse />} /> 
+        <Route path="/dailypuja" element={<DailyPujaCourse />} />
+       <Route path="/muhurtas" element={<Muhurtas />} />
+     <Route path="/upanishads" element={<UpanishadsCourse />} />
+       <Route path="/vedas" element={<VedasCourse />} />
+         <Route path="/Purana" element={<PuranaCourse />} />
+       <Route path="/mathematics" element={<MathematicsCourse />} />
+       <Route path="/mantra" element={<MantraCourse />} />
+        <Route path="/sanskritread" element={<SanskritReadingCourse />} /> 
+     <Route path="/sacredtexts" element={<SacredTextsCourse />} /> 
+           <Route path="/vedicscience" element={<VedicScience />} />
+       <Route path="/vedicphilosophy" element={<VedicPhilosophy />} />  
 
       <Route path="*" element={<div className="p-10 text-center text-red-600 font-semibold">Page Not Found</div>} />
     </Routes>

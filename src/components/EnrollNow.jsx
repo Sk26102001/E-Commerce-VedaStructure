@@ -88,22 +88,22 @@ const enrichCourseDetails = (baseCourse) => {
 };
 
 const staticCourses = [
-    { id: 1, title: "Vedic Astrology", headline: "Decode the Secrets of Your Kundali through Ancient Jyotish", price: 5999, originalPrice: 12000, duration: "8 Weeks Live", benefits: ["Lifetime Access to Recordings", "Official Certificate", "1:1 Mentorship Session", "Downloadable Study Materials (PDFs)"], rating: 5.0, faculty: "Acharya Devi", isRecommended: true, category: "Astrology", tag: "Best Seller", thumbnail: "./Vedic_Astrology_Course_Instructor.mp4", facultyImage: getFacultyImageUrl("Acharya Devi") },
-    { id: 2, title: "Palmistry (Hastrekha)", headline: "Your Destiny Lies in Your Hands – Learn the Art of Palmistry", price: 2499, originalPrice: 5000, duration: "4 Weeks Self-Paced", benefits: ["Lifetime Access", "Official Certificate", "Practice Handouts"], rating: 4.8, faculty: "Guru Gopal", isRecommended: true, category: "Astrology", tag: "New", thumbnail: "https://i.ytimg.com/vi/NODpGnZnLNY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBD1YPfB5KPLk5CqpiTnPdiyXW1Uw", facultyImage: getFacultyImageUrl("Guru Gopal") },
-    { id: 3, title: "Numerology", headline: "Numbers Don’t Lie – Unlock Destiny Through Moolank & Bhagyank", price: 1999, originalPrice: 4000, duration: "3 Weeks Online", benefits: ["Lifetime Access", "Official Certificate", "Numeroscope Calculator"], rating: 4.7, faculty: "Acharya Devi", isRecommended: false, category: "Astrology", tag: "Popular", thumbnail: "https://schoolofoccultscience.com/uploads/1720718433_Numerology%20Grid.png", facultyImage: getFacultyImageUrl("Acharya Devi") },
-    { id: 4, title: "Vastu Shastra", headline: "Balance Your Space, Balance Your Life with Vastu", price: 3499, originalPrice: 7000, duration: "6 Weeks Live + Case Studies", benefits: ["Lifetime Access", "Official Certificate", "Vastu Audit Checklist", "Expert Q&A"], rating: 4.9, faculty: "Dr. Sharma", isRecommended: true, category: "Vastu & Space", tag: "Trending", thumbnail: "https://www.vastumiracles.com/cdn/shop/articles/vastu_large.jpg?v=1608715271", facultyImage: getFacultyImageUrl("Dr. Sharma") },
-    { id: 5, title: "Sanskrit Vyakarana", headline: "Master the Grammar of Devabhasha – Sanskrit from the Roots", price: 999, originalPrice: 2000, duration: "4 Weeks Foundational", benefits: ["Lifetime Access", "Official Certificate", "Vocabulary Flashcards"], rating: 4.5, faculty: "Pandit Ravi", isRecommended: false, category: "Language & Texts", tag: "Low Price", thumbnail: "https://i0.wp.com/knowledgegallery.in/wp-content/uploads/2022/03/Sanskrit-grammar.png?fit=500%2C320&ssl=1", facultyImage: getFacultyImageUrl("Pandit Ravi") },
-    { id: 6, title: "Daily Puja Routine", headline: "Learn Nitya Puja – Step-by-Step Rituals for Modern Life", price: 1499, originalPrice: 3000, duration: "2 Weeks Quick Start", benefits: ["Lifetime Access", "Official Certificate", "Puja Mantras Guide"], rating: 4.6, faculty: "Guru Gopal", isRecommended: false, category: "Mantra & Rituals", tag: "Quick Start", thumbnail: "https://hemfragrances.in/cdn/shop/articles/how-to-perform-daily-pooja.jpg?crop=center&height=1200&v=1753445859&width=1200", facultyImage: getFacultyImageUrl("Guru Gopal") },
-    { id: 7, title: "Muhurtas", headline: "Right Time, Right Action – Science of Shubh Muhurta", price: 2999, originalPrice: 6000, duration: "5 Weeks Specialist", benefits: ["Lifetime Access", "Official Certificate", "Muhurta Calculation Software Access"], rating: 4.8, faculty: "Dr. Sharma", isRecommended: true, category: "Astrology", tag: "Specialist", thumbnail: "https://www.chamundaswamiji.com/wp-content/uploads/2021/06/mahurat.jpg", facultyImage: getFacultyImageUrl("Dr. Sharma") },
-    { id: 8, title: "Upanishads", headline: "Dive Deep into the Philosophy of Self & Brahman", price: 4999, originalPrice: 10000, duration: "8 Weeks Philosophical", benefits: ["Lifetime Access", "Official Certificate", "Weekly Discussion Forums", "Detailed Commentary"], rating: 5.0, faculty: "Pandit Ravi", isRecommended: true, category: "Philosophy", tag: "Deep Dive", thumbnail: "https://www.esamskriti.com/essays/docfile/918.jpg", facultyImage: getFacultyImageUrl("Pandit Ravi") },
-    { id: 9, title: "Vedas", headline: "Foundations of Eternal Knowledge – Study Rig, Yajur, Sama, Atharva", price: 6999, originalPrice: 15000, duration: "12 Weeks Comprehensive", benefits: ["Lifetime Access", "Official Certificate", "1:1 Mentorship Session", "Complete Digital Text Library"], rating: 4.9, faculty: "Acharya Devi", isRecommended: false, category: "Philosophy", tag: "Advanced", thumbnail: "https://preview.redd.it/i-wanna-read-the-vedas-what-source-of-books-should-i-read-v0-1j0oug99wqza1.jpg?width=1080&crop=smart&auto=webp&s=184d7fd6417502f43588e6c474fc71d2349e4b01", facultyImage: getFacultyImageUrl("Acharya Devi") },
-    { id: 10, title: "Purana & Itihas", headline: "Decode Ramayana, Mahabharata & the Puranas with Context", price: 1999, originalPrice: 4000, duration: "4 Weeks Historical", benefits: ["Lifetime Access", "Official Certificate", "Mythological Timelines"], rating: 4.7, faculty: "Guru Gopal", isRecommended: false, category: "History & Culture", tag: "History", thumbnail: "https://i.ytimg.com/vi/ZBWno70ThhE/maxresdefault.jpg", facultyImage: getFacultyImageUrl("Guru Gopal") },
-    { id: 11, title: "Vedic Mathematics", headline: "Ancient Maths Tricks for Fast Calculation & Logical Thinking", price: 999, originalPrice: 2000, duration: "3 Weeks Skills Course", benefits: ["Lifetime Access", "Official Certificate", "Practice Worksheets"], rating: 4.5, faculty: "Dr. Sharma", isRecommended: false, category: "Science & Logic", tag: "Low Price", thumbnail: "https://abacusmaster.com/blog/images/1112/Vedic-Math.jpg", facultyImage: getFacultyImageUrl("Dr. Sharma") },
-    { id: 12, title: "Mantra Healing", headline: "Heal Body, Mind & Soul Through Beej Mantras & Frequencies", price: 3999, originalPrice: 8000, duration: "6 Weeks Therapeutic", benefits: ["Lifetime Access", "Official Certificate", "Personalised Mantra Recommendation"], rating: 4.8, faculty: "Acharya Devi", isRecommended: true, category: "Mantra & Rituals", tag: "Healing", thumbnail: "https://healingwithram.in/wp-content/uploads/2025/09/mantras-for-healing-1.png", facultyImage: getFacultyImageUrl("Acharya Devi") },
-    { id: 13, title: "Sanskrit (Reading + Chanting)", headline: "Speak the Language of the Gods – Chant with Clarity", price: 1499, originalPrice: 3000, duration: "4 Weeks Practice", benefits: ["Lifetime Access", "Official Certificate", "Pronunciation Guide Audio"], rating: 4.6, faculty: "Pandit Ravi", isRecommended: false, category: "Language & Texts", tag: "Quick Start", thumbnail: "https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/themes/2149308684/settings_images/wjng9n8QICTFg2w78HdQ_Sanscrit_B.png", facultyImage: getFacultyImageUrl("Pandit Ravi") },
-    { id: 14, title: "Sacred Texts Reading", headline: "Scriptural Reading Practice: Geeta, Hanuman Chalisa, etc.", price: 999, originalPrice: 2000, duration: "2 Weeks Focused", benefits: ["Lifetime Access", "Official Certificate", "Annotated Text PDFs"], rating: 4.4, faculty: "Guru Gopal", isRecommended: false, category: "Language & Texts", tag: "Low Price", thumbnail: "https://www.focolaremedia.com/sites/default/files/styles/article_page_featured_image/public/2024-04/Website%20images%20_0.jpg?itok=-iLrs_Q4", facultyImage: getFacultyImageUrl("Guru Gopal") },
-    { id: 15, title: "Vedic Science", headline: "Hidden Scientific Concepts in Agni, Ether, Time & Creation", price: 4999, originalPrice: 10000, duration: "7 Weeks Advanced", benefits: ["Lifetime Access", "Official Certificate", "Science vs Text Comparison"], rating: 4.9, faculty: "Dr. Sharma", isRecommended: true, category: "Science & Logic", tag: "Advanced", thumbnail: "https://vedicuniversity.online/gallery_gen/49703b6abece7c8a19930f8a923d0c60_1642x1028_fit.jpg?ts=1759859580", facultyImage: getFacultyImageUrl("Dr. Sharma") },
-    { id: 16, title: "Vedic Philosophy", headline: "Understand Karma, Dharma, Rebirth, Moksha from Vedic Lens", price: 2999, originalPrice: 6000, duration: "5 Weeks Foundation", benefits: ["Lifetime Access", "Official Certificate", "Key Sutra Summaries"], rating: 4.8, faculty: "Pandit Ravi", isRecommended: true, category: "Philosophy", tag: "Foundation", thumbnail: "https://cn.edurev.in/ApplicationImages/Temp/12058070_dea7d419-77ab-4d7e-b37e-6d3e5fa993d9_lg.png?w=400&dpr=2.6", facultyImage: getFacultyImageUrl("Pandit Ravi") },
+    { id: 1, title: "Vedic Astrology", headline: "Decode the Secrets of Your Kundali through Ancient Jyotish", price: 5999, originalPrice: 12000, duration: "8 Weeks Live", path:"/CoursedetailsPage", benefits: ["Lifetime Access to Recordings", "Official Certificate", "1:1 Mentorship Session", "Downloadable Study Materials (PDFs)"], rating: 5.0, faculty: "Acharya Devi", isRecommended: true, category: "Astrology", tag: "Best Seller", thumbnail: "./Vedic_Astrology_Course_Instructor.mp4", facultyImage: getFacultyImageUrl("Acharya Devi") },
+    { id: 2, title: "Palmistry (Hastrekha)", headline: "Your Destiny Lies in Your Hands – Learn the Art of Palmistry", price: 2499, originalPrice: 5000, duration: "4 Weeks Self-Paced",    path: "/palmistry", benefits: ["Lifetime Access", "Official Certificate", "Practice Handouts"], rating: 4.8, faculty: "Guru Gopal", isRecommended: true, category: "Astrology", tag: "New", thumbnail: "https://i.ytimg.com/vi/NODpGnZnLNY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBD1YPfB5KPLk5CqpiTnPdiyXW1Uw", facultyImage: getFacultyImageUrl("Guru Gopal") },
+    { id: 3, title: "Numerology", headline: "Numbers Don’t Lie – Unlock Destiny Through Moolank & Bhagyank", price: 1999, originalPrice: 4000, duration: "3 Weeks Online",path:"/numerology", benefits: ["Lifetime Access", "Official Certificate", "Numeroscope Calculator"], rating: 4.7, faculty: "Acharya Devi", isRecommended: false, category: "Astrology", tag: "Popular", thumbnail: "https://schoolofoccultscience.com/uploads/1720718433_Numerology%20Grid.png", facultyImage: getFacultyImageUrl("Acharya Devi") },
+    { id: 4, title: "Vastu Shastra", headline: "Balance Your Space, Balance Your Life with Vastu", price: 3499, originalPrice: 7000, duration: "6 Weeks Live + Case Studies", path:"/vastu", benefits: ["Lifetime Access", "Official Certificate", "Vastu Audit Checklist", "Expert Q&A"], rating: 4.9, faculty: "Dr. Sharma", isRecommended: true, category: "Vastu & Space", tag: "Trending", thumbnail: "https://www.vastumiracles.com/cdn/shop/articles/vastu_large.jpg?v=1608715271", facultyImage: getFacultyImageUrl("Dr. Sharma") },
+    { id: 5, title: "Sanskrit Vyakarana", headline: "Master the Grammar of Devabhasha – Sanskrit from the Roots", price: 999, originalPrice: 2000, duration: "4 Weeks Foundational", path:"/sanskritcourse",  benefits: ["Lifetime Access", "Official Certificate", "Vocabulary Flashcards"], rating: 4.5, faculty: "Pandit Ravi", isRecommended: false, category: "Language & Texts", tag: "Low Price", thumbnail: "https://i0.wp.com/knowledgegallery.in/wp-content/uploads/2022/03/Sanskrit-grammar.png?fit=500%2C320&ssl=1", facultyImage: getFacultyImageUrl("Pandit Ravi") },
+    { id: 6, title: "Daily Puja Routine", headline: "Learn Nitya Puja – Step-by-Step Rituals for Modern Life", price: 1499, originalPrice: 3000, duration: "2 Weeks Quick Start", path:"/dailypuja",  benefits: ["Lifetime Access", "Official Certificate", "Puja Mantras Guide"], rating: 4.6, faculty: "Guru Gopal", isRecommended: false, category: "Mantra & Rituals", tag: "Quick Start", thumbnail: "https://hemfragrances.in/cdn/shop/articles/how-to-perform-daily-pooja.jpg?crop=center&height=1200&v=1753445859&width=1200", facultyImage: getFacultyImageUrl("Guru Gopal") },
+    { id: 7, title: "Muhurtas", headline: "Right Time, Right Action – Science of Shubh Muhurta", price: 2999, originalPrice: 6000, duration: "5 Weeks Specialist", path:"/muhurtas", benefits: ["Lifetime Access", "Official Certificate", "Muhurta Calculation Software Access"], rating: 4.8, faculty: "Dr. Sharma", isRecommended: true, category: "Astrology", tag: "Specialist", thumbnail: "https://www.chamundaswamiji.com/wp-content/uploads/2021/06/mahurat.jpg", facultyImage: getFacultyImageUrl("Dr. Sharma") },
+    { id: 8, title: "Upanishads", headline: "Dive Deep into the Philosophy of Self & Brahman", price: 4999, originalPrice: 10000, duration: "8 Weeks Philosophical", path:"/upanishads", benefits: ["Lifetime Access", "Official Certificate", "Weekly Discussion Forums", "Detailed Commentary"], rating: 5.0, faculty: "Pandit Ravi", isRecommended: true, category: "Philosophy", tag: "Deep Dive", thumbnail: "https://www.esamskriti.com/essays/docfile/918.jpg", facultyImage: getFacultyImageUrl("Pandit Ravi") },
+    { id: 9, title: "Vedas", headline: "Foundations of Eternal Knowledge – Study Rig, Yajur, Sama, Atharva", price: 6999, originalPrice: 15000, duration: "12 Weeks Comprehensive", path:"/vedas", benefits: ["Lifetime Access", "Official Certificate", "1:1 Mentorship Session", "Complete Digital Text Library"], rating: 4.9, faculty: "Acharya Devi", isRecommended: false, category: "Philosophy", tag: "Advanced", thumbnail: "https://preview.redd.it/i-wanna-read-the-vedas-what-source-of-books-should-i-read-v0-1j0oug99wqza1.jpg?width=1080&crop=smart&auto=webp&s=184d7fd6417502f43588e6c474fc71d2349e4b01", facultyImage: getFacultyImageUrl("Acharya Devi") },
+    { id: 10, title: "Purana & Itihas", headline: "Decode Ramayana, Mahabharata & the Puranas with Context", price: 1999, originalPrice: 4000, duration: "4 Weeks Historical", path:"/purana", benefits: ["Lifetime Access", "Official Certificate", "Mythological Timelines"], rating: 4.7, faculty: "Guru Gopal", isRecommended: false, category: "History & Culture", tag: "History", thumbnail: "https://i.ytimg.com/vi/ZBWno70ThhE/maxresdefault.jpg", facultyImage: getFacultyImageUrl("Guru Gopal") },
+    { id: 11, title: "Vedic Mathematics", headline: "Ancient Maths Tricks for Fast Calculation & Logical Thinking", price: 999, originalPrice: 2000, duration: "3 Weeks Skills Course", path:"/mathematics", benefits: ["Lifetime Access", "Official Certificate", "Practice Worksheets"], rating: 4.5, faculty: "Dr. Sharma", isRecommended: false, category: "Science & Logic", tag: "Low Price", thumbnail: "https://abacusmaster.com/blog/images/1112/Vedic-Math.jpg", facultyImage: getFacultyImageUrl("Dr. Sharma") },
+    { id: 12, title: "Mantra Healing", headline: "Heal Body, Mind & Soul Through Beej Mantras & Frequencies", price: 3999, originalPrice: 8000, duration: "6 Weeks Therapeutic", path:"/mantra", benefits: ["Lifetime Access", "Official Certificate", "Personalised Mantra Recommendation"], rating: 4.8, faculty: "Acharya Devi", isRecommended: true, category: "Mantra & Rituals", tag: "Healing", thumbnail: "https://healingwithram.in/wp-content/uploads/2025/09/mantras-for-healing-1.png", facultyImage: getFacultyImageUrl("Acharya Devi") },
+    { id: 13, title: "Sanskrit (Reading + Chanting)", headline: "Speak the Language of the Gods – Chant with Clarity", price: 1499, originalPrice: 3000, duration: "4 Weeks Practice", path:"/sanskritread", benefits: ["Lifetime Access", "Official Certificate", "Pronunciation Guide Audio"], rating: 4.6, faculty: "Pandit Ravi", isRecommended: false, category: "Language & Texts", tag: "Quick Start", thumbnail: "https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/themes/2149308684/settings_images/wjng9n8QICTFg2w78HdQ_Sanscrit_B.png", facultyImage: getFacultyImageUrl("Pandit Ravi") },
+    { id: 14, title: "Sacred Texts Reading", headline: "Scriptural Reading Practice: Geeta, Hanuman Chalisa, etc.", price: 999, originalPrice: 2000, duration: "2 Weeks Focused", path:"/sacredtexts", benefits: ["Lifetime Access", "Official Certificate", "Annotated Text PDFs"], rating: 4.4, faculty: "Guru Gopal", isRecommended: false, category: "Language & Texts", tag: "Low Price", thumbnail: "https://www.focolaremedia.com/sites/default/files/styles/article_page_featured_image/public/2024-04/Website%20images%20_0.jpg?itok=-iLrs_Q4", facultyImage: getFacultyImageUrl("Guru Gopal") },
+    { id: 15, title: "Vedic Science", headline: "Hidden Scientific Concepts in Agni, Ether, Time & Creation", price: 4999, originalPrice: 10000, duration: "7 Weeks Advanced", path:"/vedicscience", benefits: ["Lifetime Access", "Official Certificate", "Science vs Text Comparison"], rating: 4.9, faculty: "Dr. Sharma", isRecommended: true, category: "Science & Logic", tag: "Advanced", thumbnail: "https://vedicuniversity.online/gallery_gen/49703b6abece7c8a19930f8a923d0c60_1642x1028_fit.jpg?ts=1759859580", facultyImage: getFacultyImageUrl("Dr. Sharma") },
+    { id: 16, title: "Vedic Philosophy", headline: "Understand Karma, Dharma, Rebirth, Moksha from Vedic Lens", price: 2999, originalPrice: 6000, duration: "5 Weeks Foundation", path:"/vedicphilosophy",  benefits: ["Lifetime Access", "Official Certificate", "Key Sutra Summaries"], rating: 4.8, faculty: "Pandit Ravi", isRecommended: true, category: "Philosophy", tag: "Foundation", thumbnail: "https://cn.edurev.in/ApplicationImages/Temp/12058070_dea7d419-77ab-4d7e-b37e-6d3e5fa993d9_lg.png?w=400&dpr=2.6", facultyImage: getFacultyImageUrl("Pandit Ravi") },
 ].map(enrichCourseDetails); // APPLY ENRICHMENT TO ALL 16 COURSES
 
 // Combine all possible unique categories
@@ -123,6 +123,7 @@ const allCourses = [
             originalPrice: 500 + (i * 100),
             duration: "2 Weeks On-Demand",
             benefits: ["Lifetime Access", "Audio Guides"],
+            path: i + 17,
             rating: 3.5 + (i % 10) / 10,
             faculty: facultyName,
             isRecommended: false,
@@ -484,9 +485,34 @@ const CourseDetailsPage = ({ course = staticCourses[0], onBackToCourses, onEnrol
                                         </li>
                                     ))}
                                 </ul>
-                                <Link to="/CoursedetailsPage" type="button" className="inline-block text-orange-600 hover:text-orange-800 font-semibold transition mt-2">
+                                {/* <Link to="/CoursedetailsPage" type="button" className="inline-block text-orange-600 hover:text-orange-800 font-semibold transition mt-2">
                                     View Detailed Lesson List &rarr;
                                 </Link>
+                                 */}
+{/* <Link 
+  to={course.path} 
+  className="inline-block text-orange-600 hover:text-orange-800 font-semibold transition mt-2"
+>
+  View Detailed Lesson List &rarr;
+</Link> */}
+{/* Detailed Curriculum */}
+                            <div >
+         {/* <h2 className="text-2xl font-bold text-orange-700 mb-4 flex items-center gap-2 border-b pb-2">
+                                    <Calendar size={20} className="text-orange-500" /> Curriculum Breakdown
+                                </h2>
+                                <ul className="space-y-3 mb-4">
+                                    {curriculum.map((item, index) => (
+                                        <li key={index} className="p-3 bg-orange-50 rounded-lg border-l-4 border-orange-400 shadow-sm">
+                                            <span className="font-semibold text-gray-800 block">{item.module}</span>
+                                            <span className="text-sm text-gray-600">{item.title}</span>
+                                        </li>
+                                    ))}
+                                </ul>                        */}
+                                {/* FIX: Restoring the Link using the single 'course.path' variable for intended functionality. */}
+                                <Link to={course.path || "/CoursedetailsPage"} type="button" className="inline-block text-orange-600 hover:text-orange-800 font-semibold transition mt-2">
+                                    View Detailed Lesson List &rarr;
+                                </Link>
+                            </div>
                             </div>
                     
                             {/* Course Stats, Audience, and Enroll */}
@@ -764,23 +790,6 @@ const CoursesPage = ({ onEnrollClick, onViewDetailsClick }) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
 
 
 

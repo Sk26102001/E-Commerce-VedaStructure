@@ -7,11 +7,13 @@ import HomePages from './pages/HomePages'
 // import AstrologyCourses from './pages/AstrologyCourses'
 // import EnrollNow from './components/EnrollNow'
 // import PaymentPage from './pages/PaymentPage'
+// import AdmissionProcess from './pages/AdmissionProcess'
 
 function App() {
   return (
     <div>
       <HomePages/>
+     {/* <AdmissionProcess/> */}
      {/* <AccountPage /> */}
      {/* <AstrologyCourses/> */}
      {/* <EnrollNow/> */}
