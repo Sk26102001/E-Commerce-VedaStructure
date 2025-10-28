@@ -1,29 +1,5 @@
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React, { useState, useEffect } from "react";
 import { CheckCircle2, Award, Zap } from "lucide-react";
 import { motion,AnimatePresence } from "framer-motion";
@@ -31,6 +7,8 @@ import { motion,AnimatePresence } from "framer-motion";
 import { Briefcase, Heart, Gem, BookOpen, Activity, Building2, Wallet, Sparkles } from "lucide-react";
 
 import FAQPage from "./FAQPage";
+import Hero from "./Hero"
+import Faculty from "./Faculty";
 
 import AdmissionProcess from "./AdmissionProcess";
 import Testimonials from "../components/Testimonials";
@@ -124,6 +102,30 @@ const stepss = [
 
 
 
+// --- New Data: TOP COURSES GRID ---
+const topCourses = [
+  {
+    name: "Vedic Astrology Master Course",
+    video: "./Vedic_Astrology_Course_Instructor.mp4", // 🖼️ UPDATE THIS PATH
+    link: "/CoursedetailsPage", // 🔗 UPDATE THIS LINK
+  },
+  {
+    name: "Palmistry",
+    image: "https://i.ytimg.com/vi/NODpGnZnLNY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBD1YPfB5KPLk5CqpiTnPdiyXW1Uw", // 🖼️ UPDATE THIS PATH
+    link: "/palmistry", // 🔗 UPDATE THIS LINK
+  },
+  {
+    name: "Upanishads",
+    image: "https://www.esamskriti.com/essays/docfile/918.jpg", // 🖼️ UPDATE THIS PATH
+    link: "/upanishads", // 🔗 UPDATE THIS LINK
+  },
+  {
+    name: " Numerology",
+    image: "https://schoolofoccultscience.com/uploads/1720718433_Numerology%20Grid.png", // 🖼️ UPDATE THIS PATH
+    link: "/numerology", // 🔗 UPDATE THIS LINK
+  },
+];
+
 
 
 
@@ -142,7 +144,7 @@ const AstrologyCourses = () => {
 
   const banners = [
     {
-      video: "./Hailuo_Video_generate a videos of Astrology_433373022180130822.mp4",
+      video: "./Untitled design (1).mp4",
       title: {
         en: "Unlock Your Destiny with",
         hi: "आपकी किस्मत, सुलझाई गई – वैदिक पर्सनलाइज्ड कुंडली",
@@ -162,7 +164,8 @@ const AstrologyCourses = () => {
      
     },
     {
-      image: "https://static.tumblr.com/c69840c1f2dd84d71e56e34fc6a13cbd/j1olzmp/1OVoo6lkz/tumblr_static_13a40ubawm6oc8ok4g84cgowo_2048_v2.png",
+      // image: "https://static.tumblr.com/c69840c1f2dd84d71e56e34fc6a13cbd/j1olzmp/1OVoo6lkz/tumblr_static_13a40ubawm6oc8ok4g84cgowo_2048_v2.png",
+      video: "./Untitled design (2).mp4",
       title: {
         en: " Learn Astrology through Scriptures & Intuitive Tools.",
         hi: "अपने करियर और धन के रहस्य जानें",
@@ -215,111 +218,8 @@ const [index, setIndex] = useState(0);
 
   return (
     <div className="">
-{/* 
-<section className="relative h-[450px] md: h-[550px] flex items-center overflow-hidden bg-black"> */}
-
-  {/* Sliding banners */}
-  {/* <AnimatePresence initial={false} custom={direction}>
-    <motion.div
-      key={currentBanner}
-      custom={direction}
-      initial={{ opacity: 0, x: direction > 0 ? 80 : -80 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: direction > 0 ? -80 : 80 }}
-      transition={{ duration: 1.8, ease: "easeInOut" }}
-      className="absolute inset-0 bg-center bg-cover"
-    > */}
-      {/* If video exists, show video; else show image */}
-      {/* {current.video ? (
-        <video
-          src={current.video}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        />
-      ) : (
-        <div
-          className="absolute inset-0 bg-center bg-cover"
-          style={{ backgroundImage: `url(${current.image})` }}
-        ></div>
-      )} */}
-
-      {/* Gradient overlay for readability */}
-      {/* <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-black/40" />
-    </motion.div>
-  </AnimatePresence>
-
-  {/* Hero Content */}
-  {/* <motion.div
-    initial={{ opacity: 0, y: 40 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1.9, delay: 0.3 }}
-    className="relative z-10 text-left max-w-2xl p-4 sm:px-8 lg:px-10 px-10 ml-10" 
-  > */}
-    {/* <h1 className="text-5xl md:text-6xl font-bold text-white drop-shadow-2xl leading-snug">
-      {currentBanner === 0 ? (
-        <>
-          Unlock Your Destiny with{" "}
-          <span className="text-orange-500">Ancient Vedic Wisdom</span>
-        </>
-      ) : (
-        current.title[lang]
-      )}
-    </h1>
-
-    <p className="mt-4 text-lg md:text-xl text-yellow-100 drop-shadow-md">
-      {current.subtitle[lang]}
-    </p>
-
-    {current.subtitles && (
-      <p className="mt-4 text-lg md:text-xl text-yellow-100 drop-shadow-md">
-        {current.subtitles[lang]}
-      </p>
-    )}
-
-    <div className="mt-6 flex gap-4"> */}
-      {/* Button 1 */}
-      {/* <Link to="/enrollnow">
-        <motion.button
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.96 }}
-          className="px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-semibold rounded-xl shadow-2xl hover:bg-orange-700 transition"
-        >
-          {current.button1[lang]}
-        </motion.button>
-      </Link> */}
-
-      {/* Button 2 */}
-      {/* <Link to="/CoursedetailsPage">
-        <motion.button
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.96 }}
-          className="px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-500  text-black font-semibold rounded-xl shadow-2xl hover:bg-yellow-400 transition"
-        >
-          {current.button2[lang]}
-        </motion.button>
-      </Link> */}
-
-      {/* Button 3 (Optional) */}
-      {/* {current.button3 && (
-        <Link to="/contact">
-          <motion.button
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.96 }}
-            className="px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 font-semibold rounded-xl shadow-2xl hover:bg-yellow-400 transition"
-          >
-            {current.button3[lang]}
-          </motion.button>
-        </Link>
-      )}
-    </div>
-  </motion.div>
-</section> */}
-
-
-<section className="relative h-[450px] md:h-[550px] flex items-center overflow-hidden bg-black">
+   
+<section className="relative w-full overflow-hidden h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[85vh] flex items-center bg-black">
   {/* Sliding banners */}
   <AnimatePresence initial={false} custom={direction}>
     <motion.div
@@ -330,11 +230,10 @@ const [index, setIndex] = useState(0);
       exit={{ opacity: 0, x: direction > 0 ? -60 : 60, scale: 1.02 }}
       transition={{
         duration: 1.2,
-        ease: [0.45, 0, 0.55, 1], // smoother Bezier curve
+        ease: [0.45, 0, 0.55, 1],
       }}
       className="absolute inset-0 bg-center bg-cover will-change-transform"
     >
-      {/* Video/Image loader */}
       <div className="absolute inset-0 bg-black/0 transition-opacity duration-700">
         {current.video ? (
           <video
@@ -362,8 +261,8 @@ const [index, setIndex] = useState(0);
         )}
       </div>
 
-      {/* Smooth overlay gradient (no black flash) */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-black/40 transition-opacity duration-700" />
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20" />
     </motion.div>
   </AnimatePresence>
 
@@ -378,9 +277,9 @@ const [index, setIndex] = useState(0);
       delay: 0.8,
       ease: [0.4, 0, 0.2, 1],
     }}
-    className="relative z-10 text-left max-w-2xl p-4 sm:px-8 lg:px-10 ml-10"
+    className="relative z-10 text-left max-w-2xl p-6 sm:p-8 lg:p-10 ml-6 sm:ml-12"
   >
-    <h1 className="text-5xl md:text-6xl font-bold text-white drop-shadow-2xl leading-snug">
+    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-snug drop-shadow-2xl">
       {currentBanner === 0 ? (
         <>
           Unlock Your Destiny with{" "}
@@ -393,46 +292,44 @@ const [index, setIndex] = useState(0);
       )}
     </h1>
 
-    <p className="mt-4 text-lg md:text-xl text-yellow-100 drop-shadow-md">
+    <p className="mt-3 text-sm sm:text-base md:text-lg text-yellow-100 drop-shadow-md max-w-xl">
       {current.subtitle[lang]}
     </p>
 
     {current.subtitles && (
-      <p className="mt-3 text-lg md:text-xl text-yellow-100 drop-shadow-md">
+      <p className="mt-2 text-sm sm:text-base md:text-lg text-yellow-100 drop-shadow-md max-w-xl">
         {current.subtitles[lang]}
       </p>
     )}
 
-    <div className="mt-6 flex flex-wrap gap-4">
-      {/* Button 1 */}
+    {/* Buttons */}
+    <div className="mt-6 flex flex-wrap gap-3 sm:gap-4">
       <Link to="/enrollnow">
         <motion.button
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.96 }}
-          className="px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-semibold rounded-xl shadow-2xl transition-transform"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-sm sm:text-base font-semibold rounded-lg sm:rounded-xl shadow-xl"
         >
           {current.button1[lang]}
         </motion.button>
       </Link>
 
-      {/* Button 2 */}
       <Link to="/CoursedetailsPage">
         <motion.button
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.96 }}
-          className="px-6 py-3 bg-gradient-to-r from-yellow-400 to-orange-400 text-black font-semibold rounded-xl shadow-2xl transition-transform"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 bg-gradient-to-r from-yellow-400 to-orange-400 text-black text-sm sm:text-base font-semibold rounded-lg sm:rounded-xl shadow-xl"
         >
           {current.button2[lang]}
         </motion.button>
       </Link>
 
-      {/* Button 3 (Optional) */}
       {current.button3 && (
         <Link to="/contact">
           <motion.button
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.96 }}
-            className="px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-semibold rounded-xl shadow-2xl transition-transform"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-sm sm:text-base font-semibold rounded-lg sm:rounded-xl shadow-xl"
           >
             {current.button3[lang]}
           </motion.button>
@@ -489,34 +386,18 @@ const [index, setIndex] = useState(0);
 </div>
 
 
-{/* ===== About Section ===== */}
-<section className="relative bg-white py-20 px-8 md:px-24 mt-5  shadow-sm overflow-hidden ">
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-
-    {/* 🎥 Video Block with Flip Animation */}
-    {/* <motion.div
-      className="relative group rounded-3xl overflow-hidden shadow-2xl"
-      initial={{ rotateY: -90, opacity: 0 }}
-      whileInView={{ rotateY: 0, opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 1.2, ease: 'easeInOut' }} */}
-    {/* > */}
-      {/* Gradient Overlay */}
-      {/* <div className="absolute inset-0 bg-gradient-to-tr from-orange-400/30 to-transparent opacity-70 group-hover:opacity-90 transition duration-700"></div> */}
-
-      {/* Video */}
-      {/* <img
-      src="./ChatGPT Image Oct 9, 2025, 01_01_48 PM.png"
-        autoPlay
-        loop
-        muted
-        playsInline
-        className=" h-[200px] object-cover object-[center_top] rounded-3xl"
-      />
-    </motion.div> */}
 
 
-     {/* 🎥 Image Block with Flip Animation */}
+{/* ===== About Section - Gold & Orange Premium Design ===== */}
+<section className="relative bg-white py-24 px-8 md:px-24 mt-5 shadow-2xl overflow-hidden ">
+  
+  {/* 🌌 Subtle Background Accent (Warm Gold Glow) */}
+  <div className="absolute top-0 right-0 w-64 h-64 bg-orange-50/70 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob"></div>
+  <div className="absolute bottom-0 left-0 w-64 h-64 bg-yellow-50/70 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-blob animation-delay-2000"></div>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center max-w-7xl mx-auto">
+    
+    {/* 🎥 Image Block with Flip Animation */}
     <motion.div
       className="relative group rounded-3xl overflow-hidden shadow-2xl w-full "
       initial={{ rotateY: -90, opacity: 0 }}
@@ -524,8 +405,8 @@ const [index, setIndex] = useState(0);
       viewport={{ once: true }}
       transition={{ duration: 1.2, ease: 'easeInOut' }}
     >
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-orange-400/30 to-transparent opacity-70 group-hover:opacity-90 transition duration-700"></div>
+      {/* Richer Gradient Overlay: Deep Gold-Orange to Transparent */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-yellow-700/40 to-transparent opacity-80 group-hover:opacity-100 transition duration-700"></div>
 
       {/* Full-width Responsive Image */}
       <img
@@ -542,37 +423,38 @@ const [index, setIndex] = useState(0);
       viewport={{ once: true }}
       transition={{ duration: 1, ease: 'easeOut' }}
     >
-      <div className="relative inline-block mb-2">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-snug">
+      <div className="relative mb-6">
+        {/* Title Color: Deepest Gray/Near Black for contrast and premium feel */}
+        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-snug tracking-tight">
           About Us
         </h2>
 
-        {/* 🪷 Decorative Line Image */}
+        {/* Enhanced Decorative Line: Rich Gold-Orange */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeInOut" }}
-          className=""
+          className="h-1 w-45 bg-yellow-600 mt-2 rounded-full"
         >
-          <img
-            src="./border.png"
-            alt="decorative line"
-            className="w-[240px] md:w-[200px] object-contain"
-          />
+          {/* Using the Tailwind element for a cleaner look */}
         </motion.div>
       </div>
 
-      <p className="text-gray-700 mb-10 leading-relaxed text-lg">
-        Our Astrology Course blends <b>ancient wisdom</b> with <b>modern guidance</b>.  
-        Learn from certified experts and gain practical knowledge to interpret  
-        <b>planetary alignments</b>, understand <b>karma</b>, and apply <b>Lal Kitab principles</b>.  
+      {/* Paragraph text remains neutral for readability, key words accented with deep orange */}
+      <p className="text-gray-700 mb-12 leading-relaxed text-lg">
+        Our Astrology Course blends <b className="text-orange-700">ancient wisdom</b> with <b className="text-orange-700">modern guidance</b>. 
+        Learn from certified experts and gain practical knowledge to interpret 
+        <b className="text-orange-700">planetary alignments</b>, understand <b className="text-orange-700">karma</b>, and apply <b className="text-orange-700">Lal Kitab principles</b>. 
         This isn’t just learning — it’s a transformational journey to awaken your cosmic intuition.
       </p>
 
-      {/* ✨ Feature Highlights */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mb-10">
-        <div className="flex items-start gap-4">
-          <Award className="text-orange-500 w-7 h-7 mt-1" />
+      {/* ✨ Feature Highlights - Enhanced Cards with Hover Effect */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
+        
+        {/* Card 1 */}
+        <div className="flex items-start gap-4 p-5 rounded-xl transition duration-500 hover:shadow-xl hover:shadow-orange-300/30 hover:bg-yellow-50/50 bg-white shadow-lg border border-gray-100 hover:scale-[1.02]">
+          {/* Icon Color: Rich Gold-Yellow */}
+          <Award className="text-yellow-600 w-7 h-7 mt-1 flex-shrink-0" />
           <div>
             <h4 className="text-xl font-semibold text-gray-900">
               Certified Expert Team
@@ -583,8 +465,10 @@ const [index, setIndex] = useState(0);
           </div>
         </div>
 
-        <div className="flex items-start gap-4">
-          <Zap className="text-orange-500 w-7 h-7 mt-1" />
+        {/* Card 2 */}
+        <div className="flex items-start gap-4 p-5 rounded-xl transition duration-500 hover:shadow-xl hover:shadow-orange-300/30 hover:bg-yellow-50/50 bg-white shadow-lg border border-gray-100 hover:scale-[1.02]">
+          {/* Icon Color: Rich Gold-Yellow */}
+          <Zap className="text-yellow-600 w-7 h-7 mt-1 flex-shrink-0" />
           <div>
             <h4 className="text-xl font-semibold text-gray-900">
               Practical & Intuitive Training
@@ -596,15 +480,16 @@ const [index, setIndex] = useState(0);
         </div>
       </div>
 
-      {/* 🧿 Key Learnings */}
-      <ul className="space-y-4 mb-10">
+      {/* 🧿 Key Learnings - Checkmark color changed */}
+      <ul className="space-y-4 mb-12">
         {[
           "Master complete Vedic & Lal Kitab fundamentals",
           "Interpret planetary effects and karmic influences",
           "Practice with real-life charts under expert guidance",
         ].map((item, i) => (
           <li key={i} className="flex items-center gap-3 text-gray-700 text-lg">
-            <CheckCircle2 className="text-yellow-500 w-5 h-5" />
+            {/* Checkmark Color: Deep Orange Accent */}
+            <CheckCircle2 className="text-orange-500 w-5 h-5 flex-shrink-0" />
             {item}
           </li>
         ))}
@@ -620,54 +505,166 @@ const [index, setIndex] = useState(0);
         Explore All Courses
       </motion.button>
       </Link>
+
     </motion.div>
   </div>
 </section>
 
 
 
-{/* {new image buddha} */}
 
-<section className="relative min-h-screen w-full overflow-hidden flex flex-col justify-end">
-  {/* Background Image */}
-  <div className="absolute inset-0">
-    <img
-      src="./Copilot_20251013_185828.png"
-      alt="Astrology Banner"
-      className="w-full h-full object-contain object-center opacity-75"
-    />
-    {/* Dark Overlay */}
-    <div className="absolute inset-0 " />
-  </div>
-
-  {/* Bottom Buttons */}
-  <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pb-20">
-    {/* Gradient Button */}
-    <Link to="/enrollnow"
-      className="px-8 py-3 bg-gradient-to-r from-yellow-400 to-orange-500 
-                 text-white font-bold text-lg rounded-xl shadow-2xl
-                 hover:from-orange-500 hover:to-yellow-400
-                 transition-all duration-300 transform hover:scale-105"
+{/* NEW: TOP COURSES GRID SECTION          */}
+<section className="relative py-15 bg-gradient-to-b from-yellow-50 via-white to-orange-50 overflow-hidden ">
+  <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+    
+    {/* === Animated Heading === */}
+    <motion.div
+      initial={{ opacity: 0, y: 40, scale: 0.95 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{
+        duration: 1.1,
+        ease: [0.25, 0.1, 0.25, 1],
+      }}
+      className="mb-16"
     >
-      Enroll Now
-    </Link>
+      <motion.h2
+        className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3 tracking-tight"
+        initial={{ backgroundPositionX: "0%" }}
+        animate={{ backgroundPositionX: "200%" }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        style={{
+          backgroundImage:
+            "linear-gradient(90deg, #f59e0b, #f97316, #facc15, #f59e0b)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundSize: "200%",
+        }}
+      >
+        ✨ Our Most Popular Courses
+      </motion.h2>
 
-    {/* Outline Button */}
-    <Link to="/CoursedetailsPage"
-      className="px-8 py-3 bg-gradient-to-r from-yellow-400 to-orange-500 
-                 text-white font-bold text-lg rounded-xl shadow-2xl
-                 hover:from-orange-500 hover:to-yellow-400
-                 transition-all duration-300 transform hover:scale-105"
+      <p className="text-lg md:text-xl text-orange-600 font-medium">
+        Discover the divine knowledge designed for your spiritual journey.
+      </p>
+
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.7, delay: 0.3 }}
+        className="flex justify-center mt-3"
+      >
+        <img src="./border.png" alt="decorative line" className="w-[180px]" />
+      </motion.div>
+    </motion.div>
+
+    {/* === Premium Animated Grid === */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+      {topCourses.map((course, index) => (
+        <motion.div
+          key={index}
+          initial={{
+            opacity: 0,
+            y: 80,
+            rotateY: index % 2 === 0 ? 10 : -10,
+            scale: 0.85,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            rotateY: 0,
+            scale: 1,
+          }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{
+            duration: 1.2,
+            delay: index * 0.15,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          className="relative flex flex-col rounded-2xl overflow-hidden bg-white shadow-xl hover:shadow-[0_25px_50px_rgba(255,165,0,0.25)] transition-all duration-700 group hover:scale-[1.05]"
+        >
+          {/* Shine overlay */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-700 pointer-events-none" />
+
+          {/* Image / Video */}
+          <Link to={course.link} className="block overflow-hidden h-52 group">
+            {course.video ? (
+              <video
+                src={course.video}
+                alt={course.name}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+            ) : (
+              <img
+                src={course.image}
+                alt={course.name}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+            )}
+          </Link>
+
+          {/* Card Content */}
+          <div className="p-6 flex flex-col justify-between flex-grow">
+            <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4 tracking-tight">
+              {course.name}
+            </h3>
+
+            <Link to={course.link}>
+              <motion.button
+                whileHover={{
+                  scale: 1.08,
+                  boxShadow: "0 0 25px rgba(255,140,0,0.4)",
+                }}
+                whileTap={{ scale: 0.96 }}
+                className="w-full py-3 rounded-full bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-500 text-white font-semibold text-sm md:text-base shadow-md transition-all duration-300"
+              >
+                Enroll Now
+              </motion.button>
+            </Link>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+
+    {/* === View All Button === */}
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 1, delay: 0.4 }}
+      className="mt-20"
     >
-      Preview
-    </Link>
+      <Link to="/all-courses">
+        <motion.button
+          whileHover={{
+            scale: 1.1,
+            background:
+              "linear-gradient(90deg, #f97316, #facc15, #f97316)",
+            color: "#fff",
+            boxShadow: "0 0 35px rgba(255,165,0,0.5)",
+          }}
+          whileTap={{ scale: 0.96 }}
+          className="px-10 py-3 rounded-full border-2 border-orange-500 text-orange-600 font-bold text-lg shadow-md transition-all duration-500"
+        >
+          Explore All Programs →
+        </motion.button>
+      </Link>
+    </motion.div>
   </div>
 </section>
 
 
 
 {/* {Why should join us} */}
-<section className="relative py-20 bg-gradient-to-r from-white to-yellow-50 ">
+<section className="relative py-10 bg-gradient-to-r from-white to-yellow-50 ">
   <div className="max-w-7xl mx-auto px-6 text-center">
     {/* Heading */}
     <motion.h2
@@ -708,8 +705,8 @@ const [index, setIndex] = useState(0);
       <span className="text-2xl md:text-3xl text-yellow-400">✨</span> */}
     </motion.div>
 
-    {/* -------- GRID -------- */}
-    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-30 items-center">
+    {/* -------- UPDATED GRID FOR REDUCED GAP & LARGER SMALL-SCREEN IMAGE -------- */}
+    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-8 lg:gap-12 items-center">
       {/* Left Grid */}
       <div className="space-y-6">
         {aspects.slice(0, 4).map((item, i) => (
@@ -728,14 +725,16 @@ const [index, setIndex] = useState(0);
         ))}
       </div>
 
-      {/* Center Chakra with Glow Aura */}
-      <div className="flex justify-center items-center">
+      {/* Center Chakra with Glow Aura (Small-screen size increased, padding removed) */}
+      {/* py-6 is removed to tighten vertical spacing on small screens */}
+      <div className="flex justify-center items-center md:py-0"> 
         <div className="relative">
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-500 to-orange-600 blur-2xl opacity-70 animate-spin-slow"></div>
+          <div className="absolute inset-0 rounded-full blur-2xl opacity-70 animate-spin-slow"></div>
           <img
-            src="./chakra.png"
+            src="./GoldenPisces.png"
             alt="Chakra"
-            className="relative w-80 h-80 md:w-[26rem] md:h-[26rem] object-contain animate-spin-slow drop-shadow-xl animate-none md:animate-spin ..."
+            // BASE SIZE INCREASED FROM w-72 h-72 TO w-80 h-80 FOR SMALL SCREENS
+            className="relative w-80 h-80 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain animate-spin-slow animate-none md:animate-spin ..."
           />
         </div>
       </div>
@@ -758,6 +757,7 @@ const [index, setIndex] = useState(0);
         ))}
       </div>
     </div>
+    {/* -------- END OF UPDATED GRID -------- */}
 
     {/* -------- CTA BUTTON -------- */}
     <div className="mt-10">
@@ -765,7 +765,7 @@ const [index, setIndex] = useState(0);
         <motion.div
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.96 }}
-          className="px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-500  text-black font-semibold rounded-xl shadow-2xl hover:bg-yellow-400 transition cursor-pointer inline-block"
+          className="px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-semibold rounded-xl shadow-2xl hover:bg-yellow-400 transition cursor-pointer inline-block"
         >
           Explore All Courses
         </motion.div>
@@ -784,15 +784,9 @@ const [index, setIndex] = useState(0);
 </section>
 
 
-
-
-<section className="py-24 bg-gray-50">
+<section className=" bg-gray-50">
   <AdmissionProcess />
 </section>
-
-
-
-
 
 
 
@@ -933,7 +927,7 @@ const [index, setIndex] = useState(0);
 </section>
 
 
-
+<Faculty/>
 <FAQPage/>
 
 

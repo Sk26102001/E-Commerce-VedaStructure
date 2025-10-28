@@ -1587,12 +1587,7 @@ export default function SanskritCourse() {
           <p className="text-lg font-semibold text-red-700 mt-2">
             📞 Call or WhatsApp Support: +91 99887 76655
           </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            className={`mt-8 ${BUTTON_COLOR} text-red-700 px-8 py-3 rounded-full font-bold shadow-lg`}
-          >
-            Send Your Inquiry
-          </motion.button>
+
         </div>
       </section>
     </div>

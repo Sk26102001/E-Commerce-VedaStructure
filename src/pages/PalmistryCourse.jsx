@@ -556,6 +556,554 @@
 
 
 
+// import React, { useState } from "react";
+// import { motion, AnimatePresence } from "framer-motion";
+// import {
+//   Play,
+//   CheckCircle2,
+//   ChevronDown,
+//   BookOpen,
+//   Gift,
+//   Target, // For focus/destination (Mastery)
+//   Map, // For Hand Chart/Guidance
+//   Star, // For Brilliance/Luck
+// } from "lucide-react";
+// import { Link, useNavigate } from "react-router-dom";
+
+// // --- Configuration ---
+// // const PRIMARY_COLOR = "bg-emerald-700"; // Deep Emerald Green for Growth/Mysticism
+// // const ACCENT_COLOR = "text-amber-400"; // Golden accent for Brilliance
+// // const HOVER_COLOR = "hover:bg-gradient-to-r from-emerald-800 to-green-600";
+// const PRIMARY_COLOR = "bg-yellow-400";
+// const ACCENT_COLOR = "text-orange-600";
+// const HOVER_COLOR = "hover:bg-gradient-to-r from-yellow-400 to-orange-500";
+
+
+// // Detailed 3-Month Curriculum for Palmistry (Hastrekha)
+// const palmistryCurriculum = [
+//   {
+//     monthTitle: "⭐ Month 1: The Anatomy of Destiny (Foundations)",
+//     icon: <BookOpen className="w-5 h-5 mr-3" />,
+//     duration: "4 Weeks",
+//     modules: [
+//       {
+//         id: 1,
+//         title: "Week 1: Introduction, Hand Shapes & Finger Analysis",
+//         details: [
+//           "Understanding the active vs. passive hand and its significance.",
+//           "Categorizing hand types: Earth, Air, Fire, Water and what they reveal about personality.",
+//           "The meaning of finger length, shape, and placement (phalanges).",
+//           "Basic preparation: Taking clear hand prints and maintaining an observation journal.",
+//         ],
+//       },
+//       {
+//         id: 2,
+//         title: "Week 2: The Major Lines – Heart, Head, and Life",
+//         details: [
+//           "In-depth analysis of the Heart Line (emotions, relationships, health of the heart).",
+//           "Interpreting the Head Line (intellect, mindset, mental health, career aptitude).",
+//           "Accurately tracing and timing events on the Life Line (vitality, major life changes).",
+//           "Recognizing breaks, chains, islands, and forks on the major lines.",
+//         ],
+//       },
+//       {
+//         id: 3,
+//         title: "Week 3: The Mounts (Planetary Influences)",
+//         details: [
+//           "Understanding the Mounts of Venus (love, vitality), Jupiter (ambition, leadership), and Saturn (discipline, wisdom).",
+//           "Interpreting the Mounts of Sun (fame, success), Mercury (communication, business), and Mars (courage, energy).",
+//           "The Moon Mount (imagination, intuition) and Plain of Mars (resilience).",
+//           "How a prominent or flat Mount influences the corresponding line.",
+//         ],
+//       },
+//       {
+//         id: 4,
+//         title: "Week 4: Revision and Predictive Timing Fundamentals",
+//         details: [
+//           "Connecting lines and mounts to form a basic personality profile.",
+//           "Techniques for 'timing' future events on the major lines (e.g., the Life Line grid).",
+//           "Module 1 assessment: Reading a provided hand chart based on foundational principles.",
+//         ],
+//       },
+//     ],
+//   },
+//   {
+//     monthTitle: "🎯 Month 2: The Art of Prediction (Intermediate)",
+//     icon: <Target className="w-5 h-5 mr-3" />,
+//     duration: "4 Weeks",
+//     modules: [
+//       {
+//         id: 5,
+//         title: "Week 5: The Secondary Lines – Fate and Apollo (Sun)",
+//         details: [
+//           "In-depth analysis of the Fate Line (career, life path, financial security).",
+//           "Interpreting the Apollo (Sun) Line (creativity, recognition, public success).",
+//           "Using the Fate Line to predict career changes and retirement age.",
+//           "The significance of a double or broken Fate Line.",
+//         ],
+//       },
+//       {
+//         id: 6,
+//         title: "Week 6: Minor Lines, Markings, and Travel",
+//         details: [
+//           "Mastering the Line of Mercury (health, intuition) and Line of Union (relationships).",
+//           "Decoding influence lines, worry lines, and the Bracelets (Rascettes).",
+//           "The meaning of Grilles, Squares, Triangles, and Crosses on different mounts.",
+//           "Analyzing the travel lines and their link to the Life Line.",
+//         ],
+//       },
+//       {
+//         id: 7,
+//         title: "Week 7: Health, Wealth, and Remedial Palmistry",
+//         details: [
+//           "Identifying physical health indicators (e.g., color of the hand, nails, Line of Health).",
+//           "Predicting financial flow using the Mounts of Jupiter, Sun, and the Fate Line.",
+//           "Introduction to simple astrological/planetary remedies based on palm weak spots.",
+//           "Case study practice: Diagnosing health vulnerabilities from the hand.",
+//         ],
+//       },
+//       {
+//         id: 8,
+//         title: "Week 8: The Thumb, Intuition, and Advanced Timing",
+//         details: [
+//           "The power of the Thumb (willpower, logic) and its three sections.",
+//           "The Ring of Solomon and other intuitive markings (Girdle of Venus).",
+//           "Advanced timing techniques for marriage and financial breakthrough on the Mounts.",
+//         ],
+//       },
+//     ],
+//   },
+//   {
+//     monthTitle: "🗺️ Month 3: Professional Mastery & Holistic Reading",
+//     icon: <Map className="w-5 h-5 mr-3" />,
+//     duration: "4 Weeks",
+//     modules: [
+//       {
+//         id: 9,
+//         title: "Week 9: Holistic Synthesis: Integrating All Readings",
+//         details: [
+//           "The 3-stage reading process: Observation, Analysis, and Synthesis.",
+//           "Reading the entire hand as a single narrative, avoiding common contradictions.",
+//           "Practice: Live reading simulation and peer-to-peer analysis.",
+//         ],
+//       },
+//       {
+//         id: 10,
+//         title: "Week 10: Ethics, Consultation, and Report Writing",
+//         details: [
+//           "The ethical guidelines for a professional palmist (Hastrekhaacharya).",
+//           "Client consultation skills: Asking powerful questions, managing expectations, and maintaining confidentiality.",
+//           "Creating professional, detailed, and actionable hand reading reports.",
+//         ],
+//       },
+//       {
+//         id: 11,
+//         title: "Week 11: Professional Case Studies & Marketing",
+//         details: [
+//           "In-depth analysis of complex hands (forked lines, rare markings, multi-breaks).",
+//           "How to start your Palmistry practice: Pricing, services, and online presence.",
+//           "Using social media for ethical astrology and palmistry promotion.",
+//         ],
+//       },
+//       {
+//         id: 12,
+//         title: "Week 12: Final Certification and Master Palmist Exam",
+//         details: [
+//           "Comprehensive final exam testing knowledge of all Sutras and lines.",
+//           "Submitting a final, real-world hand reading for certification.",
+//           "Accessing the Master Palmist Alumni Network for ongoing support.",
+//         ],
+//       },
+//     ],
+//   },
+// ];
+
+// // --- Lecture Videos ---
+// const palmistryVideos = [
+//   {
+//     title: "Mastering the Life Line: Accurate Timing",
+//     thumbnail: "https://placehold.co/400x200/065F46/FFFFFF?text=Life+Line+Video",
+//     link: "https://www.youtube.com/watch?v=lifeline_timing_placeholder",
+//   },
+//   {
+//     title: "The Secrets of the Planetary Mounts",
+//     thumbnail: "https://placehold.co/400x200/10B981/FFFFFF?text=Planetary+Mounts+Video",
+//     link: "https://www.youtube.com/watch?v=planetary_mounts_placeholder",
+//   },
+//   {
+//     title: "Decoding The Fate Line (Career)",
+//     thumbnail: "https://placehold.co/400x200/F59E0B/FFFFFF?text=Fate+Line+Career+Video",
+//     link: "https://www.youtube.com/watch?v=fate_line_career_placeholder",
+//   },
+// ];
+
+
+// // --- Bonus Items ---
+// const palmistryBonus = [
+//   "Printable High-Resolution Hand Chart and Mount Grid (PDF)",
+//   "50 Real-World Hand Reading Case Studies (E-Book)",
+//   "Palmistry Professional Consultation Script",
+// ];
+
+// // --- Pricing Plans (Updated for Palmistry Theme) ---
+// const palmistryPricing = [
+//   {
+//     id: 1,
+//     key: "starter",
+//     name: "Basic Plan ",
+//     price: 2499,
+//     features: [
+//       "Months 1 & 2 Modules (Foundations & Prediction)",
+//       "Recorded HD Lectures",
+//       "Mounts and Lines Practice Quizzes",
+//     ],
+//     isPopular: false,
+//   },
+//   {
+//     id: 2,
+//     key: "master",
+//     name: "Master Plan",
+//     price: 3599,
+//     features: [
+//       "All 3 Months Curriculum (Includes Mastery)",
+//       "Lifetime Course Access",
+//       "All 3 Exclusive Bonuses",
+//       "4 Live Group Hand Reading Workshops",
+//     ],
+//     isPopular: true,
+//   },
+//   {
+//     id: 3,
+//     key: "mentor",
+//     name: "Expert Plan",
+//     price: 4599,
+//     features: [
+//       "All Master Palmist Features",
+//       "4 x 1:1 Guided Reading Sessions with Mentor",
+//       "Custom Remedial Palmistry Plan",
+//       "Priority Email Support",
+//     ],
+//     isPopular: false,
+//   },
+// ];
+
+// // --- Accordion for Modules (Reused with new styling) ---
+// const CourseAccordionItem = ({ title, details }) => {
+//   const [isOpen, setIsOpen] = useState(false);
+//   return (
+//     <div className="mb-3 rounded-xl overflow-hidden shadow-lg border border-emerald-100">
+//       <motion.button
+//         className={`w-full flex justify-between items-center p-4 text-white font-semibold rounded-xl transition-all duration-300 ${PRIMARY_COLOR} ${HOVER_COLOR}`}
+//         onClick={() => setIsOpen(!isOpen)}
+//       >
+//         <span className="text-left text-lg">{title}</span>
+//         <motion.div
+//           animate={{ rotate: isOpen ? 180 : 0 }}
+//           transition={{ duration: 0.3 }}
+//         >
+//           <ChevronDown className="w-6 h-6" />
+//         </motion.div>
+//       </motion.button>
+
+//       <AnimatePresence initial={false}>
+//         {isOpen && (
+//           <motion.div
+//             initial={{ height: 0, opacity: 0 }}
+//             animate={{ height: "auto", opacity: 1 }}
+//             exit={{ height: 0, opacity: 0 }}
+//             transition={{ type: "spring", stiffness: 200, damping: 25 }}
+//             className="overflow-hidden bg-white p-4 border-l-4 border-b-4 border-r-4 border-amber-200 rounded-b-xl"
+//           >
+//             <ul className="list-disc pl-5 text-gray-700 space-y-2">
+//               {details.map((item, index) => (
+//                 <li key={index} className="text-base font-medium">
+//                   {item}
+//                 </li>
+//               ))}
+//             </ul>
+//           </motion.div>
+//         )}
+//       </AnimatePresence>
+//     </div>
+//   );
+// };
+
+// // --- Pricing Card Component (Reused with new styling) ---
+// const PricingCard = ({ plan, onEnroll }) => (
+//   <motion.div
+//     whileHover={{ scale: plan.isPopular ? 1.05 : 1.03 }}
+//     className={`relative p-8 rounded-2xl shadow-xl transition-all duration-300 ${
+//       plan.isPopular
+//         ? "bg-orange-500 text-white border-4 border-yellow-300"
+//         : "bg-white text-gray-800 border-2 border-yellow-200"
+//     } flex flex-col h-full`}
+//   >
+//     {plan.isPopular && (
+//       <div className="absolute top-0 right-0 transform translate-y-[-50%] translate-x-1/4 bg-amber-400 text-red-800 text-xs font-bold px-4 py-1 rounded-full shadow-lg rotate-6">
+//         ✨ MOST POPULAR
+//       </div>
+//     )}
+
+//     <h3
+//       className={`text-3xl font-bold mb-4 ${
+//         plan.isPopular ? "text-white" : "text-orange-500"
+//       }`}
+//     >
+//       {plan.name}
+//     </h3>
+//     <p
+//       className={`text-5xl font-extrabold mb-6 ${
+//         plan.isPopular ? "text-amber-300" : "text-red-700"
+//       }`}
+//     >
+//       ₹{plan.price.toLocaleString()}
+//     </p>
+
+//     <ul className="space-y-3 flex-grow mb-8">
+//       {plan.features.map((feature, index) => (
+//         <li key={index} className="flex items-start">
+//           <CheckCircle2
+//             className={`w-5 h-5 mr-2 flex-shrink-0 ${
+//               plan.isPopular ? "text-yellow-300" : "text-yellow-500"
+//             }`}
+//           />
+//           <span
+//             className={`${
+//               plan.isPopular ? "text-white/90" : "text-gray-700"
+//             }`}
+//           >
+//             {feature}
+//           </span>
+//         </li>
+//       ))}
+//     </ul>
+
+//     <motion.button
+//       onClick={() => onEnroll(plan)}
+//       whileTap={{ scale: 0.98 }}
+//       className={`w-full py-3 rounded-full font-semibold text-lg transition-colors duration-300 shadow-md ${
+//         plan.isPopular
+//           ? "bg-yellow-300 text-red-800 hover:bg-yellow-400"
+//           : "bg-yellow-300 text-red-700 hover:bg-yellow-400"
+//       }`}
+//     >
+//       Start with {plan.name} 
+//     </motion.button>
+//   </motion.div>
+// );
+
+
+// export default function PalmistryCourseDetails() {
+//   const navigate = useNavigate();
+//   const courseTitle = "Palmistry (Hastrekha) Master Course";
+//   const COURSE_ID = "palmistry"; // Unique Course ID for Palmistry
+
+//   const handleEnrollClick = (plan) => {
+//     // Unique courseId for Palmistry
+//     navigate(`/enrollnows?courseId=${COURSE_ID}&plan=${plan.key}#enrollment-section`);
+//   };
+  
+//   // The default enroll button links to the popular plan
+//   const popularPlan = palmistryPricing.find(p => p.isPopular);
+
+//   return (
+//     <div className="font-sans text-gray-800 bg-gradient-to-b from-green-50 to-amber-50 overflow-hidden">
+//       {/* Hero */}
+//       <section className="relative flex flex-col justify-center items-center text-center py-24 px-6 overflow-hidden bg-gradient-to-r from-yellow-200 via-white to-orange-200">
+//         <h1 className="text-5xl md:text-6xl font-serif text-red-800 drop-shadow-md leading-snug">
+//           Palmistry (Hastrekha) Master Course: <br />
+//           <span className="text-orange-500">Decode Your Destiny, Line by Line</span>
+//         </h1>
+//         <p className="text-lg md:text-xl text-gray-700 mt-4">
+//           A comprehensive 3-month program to master the ancient Vedic science of hand analysis for powerful self-discovery and accurate prediction.
+//         </p>
+
+//         <motion.button
+//           onClick={() => handleEnrollClick(popularPlan)}
+//           whileHover={{ scale: 1.05 }}
+//           className="mt-8 bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-400 hover:to-orange-500 text-white px-8 py-3 rounded-full font-semibold shadow-xl"
+//         >
+//           👉 Start Your Reading Mastery
+//         </motion.button>
+//       </section>
+
+//       {/* Course Lecture Section */}
+//       <section className="py-20 bg-white">
+//         <div className="max-w-6xl mx-auto text-center px-6">
+//           <h2 className="text-4xl font-serif text-red-700 mb-10">🎥 Hand Reading Demonstrations</h2>
+//           <div className="grid md:grid-cols-3 gap-6">
+//             {palmistryVideos.map((video, i) => (
+//               <motion.a
+//                 href={video.link}
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//                 key={i}
+//                 whileHover={{ scale: 1.03 }}
+//                 className="rounded-xl overflow-hidden shadow-lg group relative cursor-pointer"
+//               >
+//                 <img
+//                   src={video.thumbnail}
+//                   alt={video.title}
+//                   // Fallback for image loading issues
+//                   onError={(e) => {
+//                     e.target.onerror = null;
+//                     e.target.src = "https://placehold.co/400x200/065F46/FFFFFF?text=Palmistry+Video";
+//                   }}
+//                   className="w-full h-52 object-cover group-hover:brightness-75 transition"
+//                 />
+//                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+//                   <Play className="text-white w-14 h-14 bg-emerald-600 p-3 rounded-full shadow-lg" />
+//                 </div>
+//                 <p className="mt-3 font-medium text-red-800">{video.title}</p>
+//               </motion.a>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+    
+//       {/* What You Will Learn (Curriculum) */}
+//       <section className="py-20 px-6 bg-gradient-to-b from-green-50 to-amber-50">
+//         <motion.div
+//           initial={{ opacity: 0, y: 30 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 0.8 }}
+//           className="max-w-4xl mx-auto"
+//         >
+//           <h2 className="text-4xl font-serif text-black mb-10 text-center">
+//             📘 Complete <span className={ACCENT_COLOR}>3-Month Palmistry Curriculum</span>
+//           </h2>
+
+//           {palmistryCurriculum.map((month, index) => (
+//             <div className="mb-10" key={index}>
+//               {/* Block Header */}
+//               <div className="flex items-center mb-4 border-b-2 border-orange-300 pb-2">
+//                 {month.icon}
+//                 <h3 className="text-xl sm:text-2xl font-bold text-gray-700 flex justify-between items-center w-full">
+//                   <span>{month.monthTitle}</span>
+//                   <span className="text-sm font-medium text-orange-500 bg-orange-200 px-3 py-1 rounded-full">
+//                     {month.duration}
+//                   </span>
+//                 </h3>
+//               </div>
+//               <div className="space-y-3">
+//                 {month.modules.map((module) => (
+//                   <CourseAccordionItem
+//                     key={module.id}
+//                     title={`Module ${module.id}: ${module.title}`}
+//                     details={module.details}
+//                   />
+//                 ))}
+//               </div>
+//             </div>
+//           ))}
+
+//           {/* Download Button */}
+//           <div className="text-center mt-10">
+//             <motion.button 
+//               whileHover={{ scale: 1.05 }}
+//               className={`px-8 py-3 text-lg font-medium text-white rounded-full shadow-xl transition-transform transform bg-gradient-to-r from-yellow-500 to-orange-500 active:scale-95`}
+//             >
+//               Download Full Curriculum PDF
+//             </motion.button>
+//           </div>
+//         </motion.div>
+//       </section>
+
+//       {/* Bonus Section */}
+//       <section className="py-20 px-6 bg-white">
+//         <div className="max-w-4xl mx-auto text-center p-8 border-4 border-dashed border-orange-300 rounded-3xl bg-amber-50">
+//           <h2 className="text-4xl font-serif text-red-700 mb-6 flex justify-center items-center gap-3">
+//             <Gift className="w-8 h-8 text-orange-600 animate-bounce" /> 🎁{" "}
+//             <span className="font-bold">Master Palmist Bonuses</span> – Essential Tools!
+//           </h2>
+//           <p className="text-2xl font-bold text-red-900 mb-6">
+//             Unlock exclusive tools to launch your professional practice:
+//           </p>
+//           <div className="grid md:grid-cols-3 gap-6">
+//             {palmistryBonus.map((item, index) => (
+//               <motion.div
+//                 key={index}
+//                 whileInView={{ opacity: 1, y: 0 }}
+//                 initial={{ opacity: 0, y: 20 }}
+//                 transition={{ delay: index * 0.1 }}
+//                 className="p-4 bg-white rounded-xl shadow-lg border border-emerald-100 flex items-center justify-center text-center"
+//               >
+//                 <Star className="w-5 h-5 mr-2 text-yellow-600" />
+//                 <span className="font-medium text-gray-700">{item}</span>
+//               </motion.div>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Pricing Section */}
+//       <section className="py-20 px-6 bg-gradient-to-r from-yellow-100 via-white to-orange-100">
+//         <div className="max-w-6xl mx-auto">
+//           <h2 className="text-4xl font-serif text-black mb-12 text-center">
+//             ✨ Choose Your <span className={ACCENT_COLOR}>Destiny Decoding Plan</span>
+//           </h2>
+
+//           <div className="grid lg:grid-cols-3 gap-8 items-stretch">
+//             {palmistryPricing.map((plan, index) => (
+//               <PricingCard key={index} plan={plan} onEnroll={handleEnrollClick} />
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Testimonials */}
+//       <section className="py-20 bg-white">
+//         <div className="max-w-5xl mx-auto text-center px-6">
+//           <h2 className="text-4xl font-serif text-red-700 mb-10">
+//             🌟 Professional Palmist Testimonials
+//           </h2>
+//           <div className="grid md:grid-cols-2 gap-8">
+//             {[
+//               { name: "Neha, Mumbai", text: "The timing techniques are revolutionary. I can now pinpoint major life changes with incredible accuracy, which has delighted my clients." },
+//               { name: "Ravi, Pune", text: "Before this course, I only knew the major lines. Now, I understand the subtle language of the Mounts and minor markings to give truly holistic readings." },
+//             ].map((t, i) => (
+//               <motion.div
+//                 key={i}
+//                 whileHover={{ scale: 1.03 }}
+//                 className="p-6 bg-yellow-50 rounded-xl shadow-md"
+//               >
+//                 <p className="text-gray-800 italic">“{t.text}”</p>
+//                 <p className="mt-3 text-orange-700 font-semibold">⭐⭐⭐⭐⭐ — {t.name}</p>
+//               </motion.div>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Contact */}
+//       <section id="contact" className="py-20 px-6 bg-yellow-50">
+//         <div className="max-w-3xl mx-auto text-center">
+//           <h2 className="text-4xl font-serif text-red-700 mb-8">📩 Get Support</h2>
+//           <p className="text-lg">💌 Email: oracle@palmistrymastery.com</p>
+//           <p className="text-lg">📱 WhatsApp: +91 91234 56789</p>
+//           <motion.button
+//             whileHover={{ scale: 1.05 }}
+//             className="mt-6 bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg"
+//           >
+//             🧭 Book Free Consultation
+//           </motion.button>
+//         </div>
+//       </section>
+
+//       {/* Custom Animations */}
+//       <style jsx>{`
+//         .animate-pulse-slow {
+//           animation: pulse 8s ease-in-out infinite;
+//         }
+//         @keyframes pulse {
+//           0%, 100% { opacity: 0.4; }
+//           50% { opacity: 0.8; }
+//         }
+//       `}</style>
+//     </div>
+//   );
+// }
+
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -564,243 +1112,236 @@ import {
   ChevronDown,
   BookOpen,
   Gift,
-  Target, // For focus/destination (Mastery)
-  Map, // For Hand Chart/Guidance
-  Star, // For Brilliance/Luck
+  Sun, // Used for the Sun/Foundation
+  Target, // Used for Goal/Applied
+  BarChart2, // Used for Advanced/Predictive
+  MessageSquare, // New Icon for the Form
 } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // --- Configuration ---
-// const PRIMARY_COLOR = "bg-emerald-700"; // Deep Emerald Green for Growth/Mysticism
-// const ACCENT_COLOR = "text-amber-400"; // Golden accent for Brilliance
-// const HOVER_COLOR = "hover:bg-gradient-to-r from-emerald-800 to-green-600";
-const PRIMARY_COLOR = "bg-yellow-400";
-const ACCENT_COLOR = "text-orange-600";
-const HOVER_COLOR = "hover:bg-gradient-to-r from-yellow-400 to-orange-500";
+const PRIMARY_COLOR = "bg-sky-700";
+const ACCENT_COLOR = "text-amber-400";
+const HOVER_COLOR = "hover:bg-gradient-to-r from-sky-800 to-indigo-600";
+const BUTTON_COLOR =
+  "bg-gradient-to-r from-amber-500 to-sky-600 hover:from-amber-600 hover:to-sky-700";
 
-
-// Detailed 3-Month Curriculum for Palmistry (Hastrekha)
-const palmistryCurriculum = [
+// --- Curriculum ---
+const muhurtasCurriculum = [
   {
-    monthTitle: "⭐ Month 1: The Anatomy of Destiny (Foundations)",
-    icon: <BookOpen className="w-5 h-5 mr-3" />,
+    monthTitle: "☀️ Month 1: Foundation of Timing & Panchang",
+    icon: <Sun className="w-5 h-5 mr-3" />,
     duration: "4 Weeks",
     modules: [
       {
         id: 1,
-        title: "Week 1: Introduction, Hand Shapes & Finger Analysis",
+        title: "Week 1: The Five Limbs of Time (Panchang) - Tithi & Vara",
         details: [
-          "Understanding the active vs. passive hand and its significance.",
-          "Categorizing hand types: Earth, Air, Fire, Water and what they reveal about personality.",
-          "The meaning of finger length, shape, and placement (phalanges).",
-          "Basic preparation: Taking clear hand prints and maintaining an observation journal.",
+          "Introduction to the concept of Muhurta and its importance in Vedic tradition.",
+          "Detailed study of Tithi (Lunar Day) and identifying auspicious and inauspicious Tithis.",
+          "Understanding Vara (Week Day) and its ruling planets and deities.",
+          "Practical exercise: Calculating Tithi and Vara for any given date.",
         ],
       },
       {
         id: 2,
-        title: "Week 2: The Major Lines – Heart, Head, and Life",
+        title: "Week 2: Nakshatra (Lunar Mansion) & Yoga",
         details: [
-          "In-depth analysis of the Heart Line (emotions, relationships, health of the heart).",
-          "Interpreting the Head Line (intellect, mindset, mental health, career aptitude).",
-          "Accurately tracing and timing events on the Life Line (vitality, major life changes).",
-          "Recognizing breaks, chains, islands, and forks on the major lines.",
+          "In-depth analysis of the 27 Nakshatras and their characteristics.",
+          "Matching Nakshatras for compatibility (e.g., marriage, partnership).",
+          "Understanding Yoga (Planetary Combinations) and their effects on Muhurta selection.",
+          "Identifying Gandanta and other malefic Nakshatra/Yoga junctions.",
         ],
       },
       {
         id: 3,
-        title: "Week 3: The Mounts (Planetary Influences)",
+        title: "Week 3: Karana & The Malefic Timings",
         details: [
-          "Understanding the Mounts of Venus (love, vitality), Jupiter (ambition, leadership), and Saturn (discipline, wisdom).",
-          "Interpreting the Mounts of Sun (fame, success), Mercury (communication, business), and Mars (courage, energy).",
-          "The Moon Mount (imagination, intuition) and Plain of Mars (resilience).",
-          "How a prominent or flat Mount influences the corresponding line.",
+          "Study of Karana (Half Tithi) and its specific applications for actions.",
+          "Mastering the Visha Ghati (Poisonous Time) and Rahu Kalam calculations.",
+          "Understanding Yama Ganda and Dur Muhurta - times to strictly avoid.",
+          "The role of Abhijit Muhurta - the universal auspicious time.",
         ],
       },
       {
         id: 4,
-        title: "Week 4: Revision and Predictive Timing Fundamentals",
+        title: "Week 4: Revision and Monthly Practical Application",
         details: [
-          "Connecting lines and mounts to form a basic personality profile.",
-          "Techniques for 'timing' future events on the major lines (e.g., the Life Line grid).",
-          "Module 1 assessment: Reading a provided hand chart based on foundational principles.",
+          "Integrated analysis of Panchang components for a holistic Muhurta view.",
+          "Case studies on simple Muhurta selection.",
+          "Timed assessment on Panchang calculations.",
         ],
       },
     ],
   },
   {
-    monthTitle: "🎯 Month 2: The Art of Prediction (Intermediate)",
+    monthTitle: "🎯 Month 2: Applied Muhurta - Key Life Events",
     icon: <Target className="w-5 h-5 mr-3" />,
     duration: "4 Weeks",
     modules: [
       {
         id: 5,
-        title: "Week 5: The Secondary Lines – Fate and Apollo (Sun)",
+        title: "Week 5: Vivāha Muhurta (Marriage Timing)",
         details: [
-          "In-depth analysis of the Fate Line (career, life path, financial security).",
-          "Interpreting the Apollo (Sun) Line (creativity, recognition, public success).",
-          "Using the Fate Line to predict career changes and retirement age.",
-          "The significance of a double or broken Fate Line.",
+          "Rules for selecting auspicious marriage Muhurtas.",
+          "Identifying doshas (afflictions) in charts.",
+          "Role of Moon and 8th house in Vivāha.",
         ],
       },
       {
         id: 6,
-        title: "Week 6: Minor Lines, Markings, and Travel",
+        title: "Week 6: Gṛha Praveśa & Bhumi Pūjana",
         details: [
-          "Mastering the Line of Mercury (health, intuition) and Line of Union (relationships).",
-          "Decoding influence lines, worry lines, and the Bracelets (Rascettes).",
-          "The meaning of Grilles, Squares, Triangles, and Crosses on different mounts.",
-          "Analyzing the travel lines and their link to the Life Line.",
+          "Choosing the perfect time for house inauguration.",
+          "Auspicious months and Tithis for construction.",
+          "Avoiding Vastu Doshas via correct timing.",
         ],
       },
       {
         id: 7,
-        title: "Week 7: Health, Wealth, and Remedial Palmistry",
+        title: "Week 7: Business & Career Muhurtas",
         details: [
-          "Identifying physical health indicators (e.g., color of the hand, nails, Line of Health).",
-          "Predicting financial flow using the Mounts of Jupiter, Sun, and the Fate Line.",
-          "Introduction to simple astrological/planetary remedies based on palm weak spots.",
-          "Case study practice: Diagnosing health vulnerabilities from the hand.",
+          "Choosing Lagna for starting business ventures.",
+          "Timing interviews, contracts, and launches.",
+          "Financial investment and debt repayment Muhurtas.",
         ],
       },
       {
         id: 8,
-        title: "Week 8: The Thumb, Intuition, and Advanced Timing",
+        title: "Week 8: Naming, Education, and Healing Muhurtas",
         details: [
-          "The power of the Thumb (willpower, logic) and its three sections.",
-          "The Ring of Solomon and other intuitive markings (Girdle of Venus).",
-          "Advanced timing techniques for marriage and financial breakthrough on the Mounts.",
+          "Timing the Nāma-Karaṇa ceremony.",
+          "Selecting Muhurtas for Vidyārambha (education).",
+          "Choosing times for wearing gemstones.",
         ],
       },
     ],
   },
   {
-    monthTitle: "🗺️ Month 3: Professional Mastery & Holistic Reading",
-    icon: <Map className="w-5 h-5 mr-3" />,
+    monthTitle: "🔭 Month 3: Advanced Techniques & Predictive Timing",
+    icon: <BarChart2 className="w-5 h-5 mr-3" />,
     duration: "4 Weeks",
     modules: [
       {
         id: 9,
-        title: "Week 9: Holistic Synthesis: Integrating All Readings",
+        title: "Week 9: Hora & Chou Ghadi Analysis",
         details: [
-          "The 3-stage reading process: Observation, Analysis, and Synthesis.",
-          "Reading the entire hand as a single narrative, avoiding common contradictions.",
-          "Practice: Live reading simulation and peer-to-peer analysis.",
+          "Understanding planetary Horas for daily timing.",
+          "Using Chou Ghadi for micro-muhurta analysis.",
+          "Integrating micro-timings with Panchang.",
         ],
       },
       {
         id: 10,
-        title: "Week 10: Ethics, Consultation, and Report Writing",
+        title: "Week 10: Tāra Bala & Chandra Bala Deep Dive",
         details: [
-          "The ethical guidelines for a professional palmist (Hastrekhaacharya).",
-          "Client consultation skills: Asking powerful questions, managing expectations, and maintaining confidentiality.",
-          "Creating professional, detailed, and actionable hand reading reports.",
+          "Advanced calculation of Tāra Bala.",
+          "Remedies for weak Chandra Bala.",
+          "Using transits and Ashtakavarga in Muhurta.",
+          "Remedies for weak Chandra Bala.",
         ],
       },
       {
         id: 11,
-        title: "Week 11: Professional Case Studies & Marketing",
+        title: "Week 11: Case Studies & Exceptions",
         details: [
-          "In-depth analysis of complex hands (forked lines, rare markings, multi-breaks).",
-          "How to start your Palmistry practice: Pricing, services, and online presence.",
-          "Using social media for ethical astrology and palmistry promotion.",
+          "Analyzing complex client Muhurtas.",
+          "Handling exceptions and compromises.",
+          "Combining all knowledge into synthesis.",
         ],
       },
       {
         id: 12,
-        title: "Week 12: Final Certification and Master Palmist Exam",
+        title: "Week 12: Certification & Ethics",
         details: [
-          "Comprehensive final exam testing knowledge of all Sutras and lines.",
-          "Submitting a final, real-world hand reading for certification.",
-          "Accessing the Master Palmist Alumni Network for ongoing support.",
+          "Final client project Muhurta selection.",
+          "Ethics in consultation and communication.",
+          "Continuing learning and research.",
         ],
       },
     ],
   },
 ];
 
-// --- Lecture Videos ---
-const palmistryVideos = [
+// --- Video Section ---
+const muhurtasVideos = [
   {
-    title: "Mastering the Life Line: Accurate Timing",
-    thumbnail: "https://placehold.co/400x200/065F46/FFFFFF?text=Life+Line+Video",
-    link: "https://www.youtube.com/watch?v=lifeline_timing_placeholder",
+    title: "The Power of Panchang: A 5-Step Guide",
+    thumbnail: "https://placehold.co/400x200/0B5E8F/FFFFFF?text=Panchang+Video+Demo",
+    link: "#",
   },
   {
-    title: "The Secrets of the Planetary Mounts",
-    thumbnail: "https://placehold.co/400x200/10B981/FFFFFF?text=Planetary+Mounts+Video",
-    link: "https://www.youtube.com/watch?v=planetary_mounts_placeholder",
+    title: "Vivāha Muhurta: Avoiding the Fatal Flaws",
+    thumbnail: "https://placehold.co/400x200/5C6BC0/FFFFFF?text=Marriage+Timing+Video",
+    link: "#",
   },
   {
-    title: "Decoding The Fate Line (Career)",
-    thumbnail: "https://placehold.co/400x200/F59E0B/FFFFFF?text=Fate+Line+Career+Video",
-    link: "https://www.youtube.com/watch?v=fate_line_career_placeholder",
+    title: "Daily Timing: Using Hora and Rahu Kalam",
+    thumbnail: "https://placehold.co/400x200/FFB300/1A237E?text=Daily+Muhurta+Tips",
+    link: "#",
   },
 ];
 
-
-// --- Bonus Items ---
-const palmistryBonus = [
-  "Printable High-Resolution Hand Chart and Mount Grid (PDF)",
-  "50 Real-World Hand Reading Case Studies (E-Book)",
-  "Palmistry Professional Consultation Script",
+// --- Bonus Section ---
+const muhurtasBonus = [
+  "High-Resolution Panchang & Tithi Chart",
+  "Ready-Reckoner for Malefic Timings",
+  "Lifetime Access to Muhurta Software",
 ];
 
-// --- Pricing Plans (Updated for Palmistry Theme) ---
-const palmistryPricing = [
+// --- Pricing Plans ---
+const pricingPlans = [
   {
     id: 1,
     key: "starter",
-    name: "Basic Plan ",
-    price: 2499,
+    name: "Panchang Foundation",
+    price: 1499,
     features: [
-      "Months 1 & 2 Modules (Foundations & Prediction)",
-      "Recorded HD Lectures",
-      "Mounts and Lines Practice Quizzes",
+      "Months 1 & 2 Modules (Foundation & Key Events)",
+      "Recorded Video Lectures",
+      "Module-wise Quizzes",
     ],
     isPopular: false,
   },
   {
     id: 2,
     key: "master",
-    name: "Master Plan",
-    price: 3599,
+    name: "Muhurta Master",
+    price: 2999,
     features: [
-      "All 3 Months Curriculum (Includes Mastery)",
-      "Lifetime Course Access",
-      "All 3 Exclusive Bonuses",
-      "4 Live Group Hand Reading Workshops",
+      "All 3 Months Curriculum (Full Mastery)",
+      "Software Access",
+      "4 Live Q&A Sessions",
+      "Final Project Review",
     ],
     isPopular: true,
   },
   {
     id: 3,
     key: "mentor",
-    name: "Expert Plan",
-    price: 4599,
+    name: "Professional Consultant",
+    price: 4999,
     features: [
-      "All Master Palmist Features",
-      "4 x 1:1 Guided Reading Sessions with Mentor",
-      "Custom Remedial Palmistry Plan",
-      "Priority Email Support",
+      "All Muhurta Master Features",
+      "4 x 1:1 Personalized Sessions",
+      "Professional Ethics Module",
+      "Dedicated Telegram Support",
     ],
     isPopular: false,
   },
 ];
 
-// --- Accordion for Modules (Reused with new styling) ---
+// --- Accordion Component ---
 const CourseAccordionItem = ({ title, details }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="mb-3 rounded-xl overflow-hidden shadow-lg border border-emerald-100">
+    <div className="mb-3 rounded-xl overflow-hidden shadow-lg border border-sky-100">
       <motion.button
         className={`w-full flex justify-between items-center p-4 text-white font-semibold rounded-xl transition-all duration-300 ${PRIMARY_COLOR} ${HOVER_COLOR}`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <span className="text-left text-lg">{title}</span>
-        <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
-        >
+        <motion.div animate={{ rotate: isOpen ? 180 : 0 }}>
           <ChevronDown className="w-6 h-6" />
         </motion.div>
       </motion.button>
@@ -828,52 +1369,30 @@ const CourseAccordionItem = ({ title, details }) => {
   );
 };
 
-// --- Pricing Card Component (Reused with new styling) ---
+// --- Pricing Card Component ---
 const PricingCard = ({ plan, onEnroll }) => (
   <motion.div
     whileHover={{ scale: plan.isPopular ? 1.05 : 1.03 }}
     className={`relative p-8 rounded-2xl shadow-xl transition-all duration-300 ${
       plan.isPopular
-        ? "bg-orange-500 text-white border-4 border-yellow-300"
-        : "bg-white text-gray-800 border-2 border-yellow-200"
+        ? "bg-sky-800 text-white border-4 border-amber-300"
+        : "bg-white text-gray-800 border-2 border-sky-100"
     } flex flex-col h-full`}
   >
     {plan.isPopular && (
-      <div className="absolute top-0 right-0 transform translate-y-[-50%] translate-x-1/4 bg-amber-400 text-red-800 text-xs font-bold px-4 py-1 rounded-full shadow-lg rotate-6">
+      <div className="absolute top-0 right-0 transform -translate-y-1/2 translate-x-1/4 bg-amber-400 text-sky-800 text-xs font-bold px-4 py-1 rounded-full shadow-lg rotate-6">
         ✨ MOST POPULAR
       </div>
     )}
 
-    <h3
-      className={`text-3xl font-bold mb-4 ${
-        plan.isPopular ? "text-white" : "text-orange-500"
-      }`}
-    >
-      {plan.name}
-    </h3>
-    <p
-      className={`text-5xl font-extrabold mb-6 ${
-        plan.isPopular ? "text-amber-300" : "text-red-700"
-      }`}
-    >
-      ₹{plan.price.toLocaleString()}
-    </p>
+    <h3 className="text-3xl font-bold mb-4">{plan.name}</h3>
+    <p className="text-5xl font-extrabold mb-6">₹{plan.price.toLocaleString()}</p>
 
     <ul className="space-y-3 flex-grow mb-8">
       {plan.features.map((feature, index) => (
         <li key={index} className="flex items-start">
-          <CheckCircle2
-            className={`w-5 h-5 mr-2 flex-shrink-0 ${
-              plan.isPopular ? "text-yellow-300" : "text-yellow-500"
-            }`}
-          />
-          <span
-            className={`${
-              plan.isPopular ? "text-white/90" : "text-gray-700"
-            }`}
-          >
-            {feature}
-          </span>
+          <CheckCircle2 className="w-5 h-5 mr-2 flex-shrink-0 text-amber-300" />
+          <span>{feature}</span>
         </li>
       ))}
     </ul>
@@ -881,62 +1400,174 @@ const PricingCard = ({ plan, onEnroll }) => (
     <motion.button
       onClick={() => onEnroll(plan)}
       whileTap={{ scale: 0.98 }}
-      className={`w-full py-3 rounded-full font-semibold text-lg transition-colors duration-300 shadow-md ${
+      className={`w-full py-3 rounded-full font-semibold text-lg shadow-md ${
         plan.isPopular
-          ? "bg-yellow-300 text-red-800 hover:bg-yellow-400"
-          : "bg-yellow-300 text-red-700 hover:bg-yellow-400"
+          ? "bg-amber-300 text-sky-800 hover:bg-amber-400"
+          : "bg-sky-100 text-sky-700 hover:bg-sky-200"
       }`}
     >
-      Start with {plan.name} 
+      Master with {plan.name}
     </motion.button>
   </motion.div>
 );
 
+// --- Testimonial Data ---
+const testimonials = [
+  {
+    name: "Shikha V., Mumbai",
+    text: "The deep dive into Nakshatras for marriage timing was invaluable. I now feel confident recommending precise dates to clients.",
+    rating: "⭐⭐⭐⭐⭐",
+  },
+  {
+    name: "Rajesh K., Delhi",
+    text: "As a practicing astrologer, this course filled crucial gaps in my Muhurta selection process, especially for business launches. Worth every penny!",
+    rating: "⭐⭐⭐⭐⭐",
+  },
+  {
+    name: "Priya S., Pune",
+    text: "The clear explanation of Rahu Kalam and Visha Ghati changed how I plan my daily activities. My productivity has visibly improved.",
+    rating: "⭐⭐⭐⭐⭐",
+  },
+];
 
-export default function PalmistryCourseDetails() {
-  const navigate = useNavigate();
-  const courseTitle = "Palmistry (Hastrekha) Master Course";
-  const COURSE_ID = "palmistry"; // Unique Course ID for Palmistry
 
-  const handleEnrollClick = (plan) => {
-    // Unique courseId for Palmistry
-    navigate(`/enrollnows?courseId=${COURSE_ID}&plan=${plan.key}#enrollment-section`);
+// --- COMPACT ENQUIRE FORM COMPONENT (SUBJECT REMOVED) ---
+const EnquireForm = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "", // Subject field is now removed from state
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
-  
-  // The default enroll button links to the popular plan
-  const popularPlan = palmistryPricing.find(p => p.isPopular);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // In a real application, you would send this data to a server
+    console.log("Enquiry Form Submitted:", formData);
+    alert(`Thank you for your enquiry, ${formData.name}! We will be in touch shortly.`);
+    setFormData({ name: "", email: "", message: "" }); // Reset form
+  };
 
   return (
-    <div className="font-sans text-gray-800 bg-gradient-to-b from-green-50 to-amber-50 overflow-hidden">
-      {/* Hero */}
-      <section className="relative flex flex-col justify-center items-center text-center py-24 px-6 overflow-hidden bg-gradient-to-r from-yellow-200 via-white to-orange-200">
-        <h1 className="text-5xl md:text-6xl font-serif text-red-800 drop-shadow-md leading-snug">
-          Palmistry (Hastrekha) Master Course: <br />
-          <span className="text-orange-500">Decode Your Destiny, Line by Line</span>
+    <section id="enquire" className="py-12 px-6 bg-gradient-to-b from-blue-50 to-sky-100">
+      <div className="max-w-xl mx-auto p-5 bg-white rounded-xl shadow-2xl border-t-4 border-sky-600">
+        <h2 className="text-2xl font-serif text-sky-700 mb-4 text-center font-bold flex items-center justify-center">
+          <MessageSquare className="w-6 h-6 mr-2 text-sky-600" />
+          Course <span className={ACCENT_COLOR}>Enquiry Form</span>
+        </h2>
+        <p className="text-center text-gray-600 text-sm mb-4">
+          Have a specific question about the modules or live sessions? Send us a message!
+        </p>
+        
+        <form onSubmit={handleSubmit} className="space-y-2.5">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              required
+              value={formData.name}
+              onChange={handleChange}
+              className="mt-1 block w-full px-3 py-1.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 text-sm"
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              value={formData.email}
+              onChange={handleChange}
+              className="mt-1 block w-full px-3 py-1.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 text-sm"
+            />
+          </div>
+          {/* REMOVED SUBJECT FIELD HERE */}
+          <div>
+            <label htmlFor="message" className="block text-sm font-medium text-gray-700">Your Question/Message</label>
+            <textarea
+              name="message"
+              id="message"
+              rows="3" 
+              required
+              value={formData.message}
+              onChange={handleChange}
+              className="mt-1 block w-full px-3 py-1.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 text-sm"
+            ></textarea>
+          </div>
+          
+          <motion.button
+            type="submit"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className={`w-full mt-3 ${BUTTON_COLOR} text-white font-semibold py-2.5 px-4 rounded-lg shadow-lg transition-transform text-sm`}
+          >
+            Submit Enquiry
+          </motion.button>
+        </form>
+      </div>
+    </section>
+  );
+};
+// --- END COMPACT ENQUIRE FORM COMPONENT ---
+
+
+// --- Main Page Component ---
+export default function MuhurtasCourse() {
+  const navigate = useNavigate();
+
+  const handleEnrollClick = (plan) => {
+    navigate(`/enrollnows?courseId=muhurtas&plan=${plan.key}#enrollment-section`);
+  };
+
+  const defaultPlanKey =
+    pricingPlans.find((p) => p.isPopular)?.key || pricingPlans[0].key;
+
+  return (
+    <div className="font-sans text-gray-800 bg-gradient-to-b from-sky-50 to-blue-50 overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative flex flex-col justify-center items-center text-center py-24 px-6 bg-gradient-to-r from-sky-100 via-blue-50 to-sky-100">
+        <h1 className="text-5xl md:text-6xl font-serif text-sky-800 leading-snug">
+          The Cosmic Clock: <br />
+          <span className="text-sky-600">Science of Shub Muhurta</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-700 mt-4">
-          A comprehensive 3-month program to master the ancient Vedic science of hand analysis for powerful self-discovery and accurate prediction.
+          Learn to harness the power of planetary positions for perfect timing.
         </p>
 
         <motion.button
-          onClick={() => handleEnrollClick(popularPlan)}
           whileHover={{ scale: 1.05 }}
-          className="mt-8 bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-400 hover:to-orange-500 text-white px-8 py-3 rounded-full font-semibold shadow-xl"
+          onClick={() =>
+            navigate(
+              `/enrollnows?courseId=muhurtas&plan=${defaultPlanKey}#enrollment-section`
+            )
+          }
+          className={`mt-8 ${BUTTON_COLOR} text-white px-8 py-3 rounded-full font-semibold shadow-xl`}
         >
-          👉 Start Your Reading Mastery
+          👉 Enroll in the Muhurta Master Plan
         </motion.button>
       </section>
 
-      {/* Course Lecture Section */}
+      {/* Videos */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto text-center px-6">
-          <h2 className="text-4xl font-serif text-red-700 mb-10">🎥 Hand Reading Demonstrations</h2>
+          <h2 className="text-4xl font-serif text-sky-700 mb-10">
+            🎥 Foundational Timing Concepts
+          </h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {palmistryVideos.map((video, i) => (
+            {muhurtasVideos.map((video, i) => (
               <motion.a
                 href={video.link}
                 target="_blank"
-                rel="noopener noreferrer"
                 key={i}
                 whileHover={{ scale: 1.03 }}
                 className="rounded-xl overflow-hidden shadow-lg group relative cursor-pointer"
@@ -944,91 +1575,67 @@ export default function PalmistryCourseDetails() {
                 <img
                   src={video.thumbnail}
                   alt={video.title}
-                  // Fallback for image loading issues
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = "https://placehold.co/400x200/065F46/FFFFFF?text=Palmistry+Video";
+                    e.target.src =
+                      "https://placehold.co/400x200/0B5E8F/FFFFFF?text=Video+Placeholder";
                   }}
                   className="w-full h-52 object-cover group-hover:brightness-75 transition"
                 />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                  <Play className="text-white w-14 h-14 bg-emerald-600 p-3 rounded-full shadow-lg" />
+                  <Play className="text-white w-14 h-14 bg-sky-600 p-3 rounded-full shadow-lg" />
                 </div>
-                <p className="mt-3 font-medium text-red-800">{video.title}</p>
+                <p className="mt-3 font-medium text-sky-800">{video.title}</p>
               </motion.a>
             ))}
           </div>
         </div>
       </section>
-    
-      {/* What You Will Learn (Curriculum) */}
-      <section className="py-20 px-6 bg-gradient-to-b from-green-50 to-amber-50">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
-        >
-          <h2 className="text-4xl font-serif text-black mb-10 text-center">
-            📘 Complete <span className={ACCENT_COLOR}>3-Month Palmistry Curriculum</span>
-          </h2>
 
-          {palmistryCurriculum.map((month, index) => (
+      {/* Curriculum */}
+      <section className="py-20 px-6 bg-gradient-to-b from-sky-50 to-blue-50">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-serif text-sky-700 mb-10 text-center">
+            📘 Complete <span className={ACCENT_COLOR}>3-Month Muhurta Curriculum</span>
+          </h2>
+          {muhurtasCurriculum.map((month, index) => (
             <div className="mb-10" key={index}>
-              {/* Block Header */}
-              <div className="flex items-center mb-4 border-b-2 border-orange-300 pb-2">
+              <div className="flex items-center mb-4 border-b-2 border-sky-300 pb-2">
                 {month.icon}
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-700 flex justify-between items-center w-full">
+                <h3 className="text-2xl font-bold text-gray-700 flex justify-between w-full">
                   <span>{month.monthTitle}</span>
-                  <span className="text-sm font-medium text-orange-500 bg-orange-200 px-3 py-1 rounded-full">
+                  <span className="text-sm font-medium text-sky-500 bg-sky-100 px-3 py-1 rounded-full">
                     {month.duration}
                   </span>
                 </h3>
               </div>
-              <div className="space-y-3">
-                {month.modules.map((module) => (
-                  <CourseAccordionItem
-                    key={module.id}
-                    title={`Module ${module.id}: ${module.title}`}
-                    details={module.details}
-                  />
-                ))}
-              </div>
+              {month.modules.map((module) => (
+                <CourseAccordionItem
+                  key={module.id}
+                  title={`Module ${module.id}: ${module.title}`}
+                  details={module.details}
+                />
+              ))}
             </div>
           ))}
-
-          {/* Download Button */}
-          <div className="text-center mt-10">
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              className={`px-8 py-3 text-lg font-medium text-white rounded-full shadow-xl transition-transform transform bg-gradient-to-r from-yellow-500 to-orange-500 active:scale-95`}
-            >
-              Download Full Curriculum PDF
-            </motion.button>
-          </div>
-        </motion.div>
+        </div>
       </section>
 
-      {/* Bonus Section */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-4xl mx-auto text-center p-8 border-4 border-dashed border-orange-300 rounded-3xl bg-amber-50">
-          <h2 className="text-4xl font-serif text-red-700 mb-6 flex justify-center items-center gap-3">
-            <Gift className="w-8 h-8 text-orange-600 animate-bounce" /> 🎁{" "}
-            <span className="font-bold">Master Palmist Bonuses</span> – Essential Tools!
+      {/* Bonuses */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto text-center p-8 border-4 border-dashed border-sky-300 rounded-3xl bg-amber-50">
+          <h2 className="text-4xl font-serif text-sky-700 mb-6 flex justify-center items-center gap-3">
+            <Gift className="w-8 h-8 text-sky-600 animate-bounce" /> 🎁 Bonuses Included
           </h2>
-          <p className="text-2xl font-bold text-red-900 mb-6">
-            Unlock exclusive tools to launch your professional practice:
-          </p>
           <div className="grid md:grid-cols-3 gap-6">
-            {palmistryBonus.map((item, index) => (
+            {muhurtasBonus.map((item, index) => (
               <motion.div
                 key={index}
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: 20 }}
                 transition={{ delay: index * 0.1 }}
-                className="p-4 bg-white rounded-xl shadow-lg border border-emerald-100 flex items-center justify-center text-center"
+                className="p-4 bg-white rounded-xl shadow-lg border border-sky-100 flex items-center justify-center text-center"
               >
-                <Star className="w-5 h-5 mr-2 text-yellow-600" />
                 <span className="font-medium text-gray-700">{item}</span>
               </motion.div>
             ))}
@@ -1036,70 +1643,46 @@ export default function PalmistryCourseDetails() {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section className="py-20 px-6 bg-gradient-to-r from-yellow-100 via-white to-orange-100">
+      {/* Pricing */}
+      <section className="py-20 px-6 bg-gradient-to-r from-amber-100 via-sky-50 to-amber-100">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-serif text-black mb-12 text-center">
-            ✨ Choose Your <span className={ACCENT_COLOR}>Destiny Decoding Plan</span>
+          <h2 className="text-4xl font-serif text-sky-700 mb-12 text-center">
+            ✨ Choose Your <span className={ACCENT_COLOR}>Auspicious Path</span>
           </h2>
 
           <div className="grid lg:grid-cols-3 gap-8 items-stretch">
-            {palmistryPricing.map((plan, index) => (
+            {pricingPlans.map((plan, index) => (
               <PricingCard key={index} plan={plan} onEnroll={handleEnrollClick} />
             ))}
           </div>
         </div>
       </section>
-
-      {/* Testimonials */}
+      
+      {/* Testimonials Section */}
       <section className="py-20 bg-white">
-        <div className="max-w-5xl mx-auto text-center px-6">
-          <h2 className="text-4xl font-serif text-red-700 mb-10">
-            🌟 Professional Palmist Testimonials
+        <div className="max-w-6xl mx-auto text-center px-6">
+          <h2 className="text-4xl font-serif text-sky-700 mb-10">
+            🌟 Success Stories: Master of Muhurta
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              { name: "Neha, Mumbai", text: "The timing techniques are revolutionary. I can now pinpoint major life changes with incredible accuracy, which has delighted my clients." },
-              { name: "Ravi, Pune", text: "Before this course, I only knew the major lines. Now, I understand the subtle language of the Mounts and minor markings to give truly holistic readings." },
-            ].map((t, i) => (
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((t, i) => (
               <motion.div
                 key={i}
                 whileHover={{ scale: 1.03 }}
-                className="p-6 bg-yellow-50 rounded-xl shadow-md"
+                className="p-6 bg-sky-50 rounded-xl shadow-lg border border-sky-100 flex flex-col items-center"
               >
-                <p className="text-gray-800 italic">“{t.text}”</p>
-                <p className="mt-3 text-orange-700 font-semibold">⭐⭐⭐⭐⭐ — {t.name}</p>
+                <p className="text-4xl mb-3 text-amber-500">“</p>
+                <p className="text-gray-800 italic flex-grow">“{t.text}”</p>
+                <p className="mt-4 text-sky-700 font-semibold">{t.rating} — {t.name}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Contact */}
-      <section id="contact" className="py-20 px-6 bg-yellow-50">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl font-serif text-red-700 mb-8">📩 Get Support</h2>
-          <p className="text-lg">💌 Email: oracle@palmistrymastery.com</p>
-          <p className="text-lg">📱 WhatsApp: +91 91234 56789</p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            className="mt-6 bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg"
-          >
-            🧭 Book Free Consultation
-          </motion.button>
-        </div>
-      </section>
+      {/* Enquire Form - Now Compact and Subject-less */}
+      <EnquireForm />
 
-      {/* Custom Animations */}
-      <style jsx>{`
-        .animate-pulse-slow {
-          animation: pulse 8s ease-in-out infinite;
-        }
-        @keyframes pulse {
-          0%, 100% { opacity: 0.4; }
-          50% { opacity: 0.8; }
-        }
-      `}</style>
     </div>
   );
 }
