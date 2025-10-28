@@ -563,30 +563,32 @@ const [index, setIndex] = useState(0);
     </motion.div>
 
     {/* === Premium Animated Grid === */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
-      {topCourses.map((course, index) => (
-        <motion.div
-          key={index}
-          initial={{
-            opacity: 0,
-            y: 80,
-            rotateY: index % 2 === 0 ? 10 : -10,
-            scale: 0.85,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-            rotateY: 0,
-            scale: 1,
-          }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{
-            duration: 1.2,
-            delay: index * 0.15,
-            ease: [0.16, 1, 0.3, 1],
-          }}
-          className="relative flex flex-col rounded-2xl overflow-hidden bg-white shadow-xl hover:shadow-[0_25px_50px_rgba(255,165,0,0.25)] transition-all duration-700 group hover:scale-[1.05]"
-        >
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+      {topCourses.map((course, index) => (
+        <motion.div
+          key={index}
+          initial={{
+            opacity: 0,
+            y: 80,
+            rotateY: index % 2 === 0 ? 10 : -10,
+            scale: 0.85,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            rotateY: 0,
+            scale: 1,
+          }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{
+            // ⚡️ CHANGE: Reduced duration for faster animation
+            duration: 0.6, 
+            // ⚡️ CHANGE: Reduced delay for faster stagger effect
+            delay: index * 0.08, 
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          className="relative flex flex-col rounded-2xl overflow-hidden bg-white shadow-xl hover:shadow-[0_25px_50px_rgba(255,165,0,0.25)] transition-all duration-700 group hover:scale-[1.05]"
+        >
           {/* Shine overlay */}
           <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-700 pointer-events-none" />
 
@@ -642,7 +644,7 @@ const [index, setIndex] = useState(0);
       transition={{ duration: 1, delay: 0.4 }}
       className="mt-20"
     >
-      <Link to="/all-courses">
+      <Link to="/enrollnow">
         <motion.button
           whileHover={{
             scale: 1.1,
